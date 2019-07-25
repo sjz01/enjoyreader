@@ -1,13 +1,14 @@
 <template>
   <div id="app">
-    <Navbar />
+    <Navbar /> 
+    <router-view></router-view>
     <Tabbar />
   </div>
 </template>
 
 <script>
  import Tabbar from './components/Tabbar'
-import Navbar from './components/Navbar'
+ import Navbar from './components/Navbar'
   
 
   export default {

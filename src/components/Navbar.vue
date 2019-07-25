@@ -1,16 +1,13 @@
 <template>
   <div id="navbar">
     <!-- 顶部导航栏 -->
-    <p>书城</p>
+    <p>{{$store.state.myTitle}}</p>
   </div>
 </template>
 
 <script>
 export default {
-  name: "Navbar",
-  components: {
-
-  }
+  name: "Navbar"
 };
 </script>
 

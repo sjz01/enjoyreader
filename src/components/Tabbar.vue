@@ -1,23 +1,28 @@
 <template>
   <div id="tabbar">
     <!-- 底部导航栏 -->
-    <router-link to="/BookCity"   exact>
-    <img src="@/assets/书城.png" @click="changeTitle('书城')" alt="">
+    <router-link to="/bookcity" exact>
+      <p @click="changeTitle('书城')">&#xe663;</p>
       <p>书城</p>
     </router-link>
-    <router-link to="/BookShelf"  >
-    <img  src="@/assets/书架.png" @click="changeTitle('书架')" alt="">
+    <router-link to="/bookshelf">
+      <p @click="changeTitle('书架')">&#xe60e;</p>
       <p>书架</p>
     </router-link>
-    <router-link to="/Mine"  >
-    <img src="@/assets/我的.png" @click="changeTitle('我')" alt="">
+    <router-link to="/mine">
+      <p @click="changeTitle('我')">&#xe512;</p>
       <p>我</p>
     </router-link>
   </div>
 </template>
 <script>
 export default {
-  name: "Tabbar"
+  name: "Tabbar",
+  methods: {
+    changeTitle(title) {
+      this.$store.commit("changeMytitle", { title });
+    }
+  }
 };
 </script>
 
@@ -38,8 +43,25 @@ img {
   width: 22px;
   height: 22px;
 }
+
 // .router-link-active {
 //   text-decoration: none;
 //   color: #e54847;
 // }
+// a {
+//   display: block;
+//   text-decoration: none;
+//   overflow: hidden;
+// }
+
+p:nth-of-type(1) {
+  font-family: myFont;
+  font-size: 28px;
+  color: #8a8a8a;
+}
+p:nth-of-type(2) {
+  font-family: fangsong;
+  // font-size: 28px;
+  color: #8a8a8a;
+}
 </style>
