@@ -13,7 +13,6 @@ export default new Vuex.Store({
     changeMytitle:(state,payload)=>{
       state.myTitle = payload.title;
     }
-
   },
   actions: {
 

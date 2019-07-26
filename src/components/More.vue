@@ -14,5 +14,8 @@ export default {
 </script>
 
 <style>
+#more{
+    margin-top: 100px;
+}
 
 </style>
