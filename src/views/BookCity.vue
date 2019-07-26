@@ -24,11 +24,11 @@
       <!-- Optional controls -->
       <div class="swiper-pagination" slot="pagination"></div>
     </swiper>
-    <Type />
-    <Type />
-    <Type />
-    <Type />
     
+    <Type />
+    <Type />
+    <Type />
+    <Type />
     <!-- <Swiper /> -->
   </div>
 </template>

@@ -1,7 +1,7 @@
 <template>
     <div id="book-detail">
         <!-- 图书详情 -->
-    图书详情
+     图书详情
 
     </div>
 </template>
@@ -12,6 +12,8 @@ export default {
 }
 </script>
 
-<style>
-
+<style scoped>
+    #book-detail{
+        margin-top: 200px;
+    }
 </style>

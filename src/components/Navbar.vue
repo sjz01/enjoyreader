@@ -18,6 +18,7 @@ export default {
   background-color: #8a8a8a;
   position: fixed;
   top: 0;
+  z-index: 10;
 }
 
 p {
