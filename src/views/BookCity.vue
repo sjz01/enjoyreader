@@ -1,28 +1,32 @@
 <template>
     <div id="book-city">
         <!-- 书城 -->
-            <p>我是书城</p>  
-            <More />
-            <Book /> 
+        <input type="text" placeholder="请搜索书籍">
+        
+        
+
+            <!-- <More />
+            <Book />  -->
             <!-- <BookDetail /> -->
     </div>
 </template>
 
 <script>
-  import More from '@/components/More'
-  import Book from '@/components/Book'
-  import BookDetail from '@/views/BookDetail'
+//   import More from '@/components/More'
+//   import Book from '@/components/Book'
+//   import BookDetail from '@/views/BookDetail'
 export default {
     name: "BookCity",
     components:{
-        More,Book,BookDetail
+        // More,Book,BookDetail
+        
     }
 }
 </script>
 
 <style scoped>
 #book-city{
-    margin-top: 100px;
+    margin-top: 50px;
 }
 
 </style>
