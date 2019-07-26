@@ -1,7 +1,6 @@
 <template>
   <div id="book-detail">
     <!-- 图书详情 -->
-<<<<<<< HEAD
     <div class="BookCover">
       <img src="http://img0.imgtn.bdimg.com/it/u=3963626460,748883260&fm=26&gp=0.jpg" alt />
       <p>书名：盗墓笔记</p>
@@ -59,12 +58,6 @@
          </div>
 
      </div>
-=======
-    <nav class="nav-bar">
-      <span @click="back">返回</span>
-      <p>图书详情</p>
-    </nav>
->>>>>>> 0028f7126038f037b4ed4ded2257a5918fc29e11
   </div>
 </template>
 
