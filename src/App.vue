@@ -3,7 +3,8 @@
     <Navbar />
     <!-- <BookCity /> -->
     <router-view></router-view>
-    <Tabbar />
+    <router-view name="more"></router-view>
+    <router-view name="detail"></router-view>
     <!-- <p>{{$store.state.wanglei.name}}</p>
       <p>{{$store.state.qianyao.name}}</p>
     <p>{{$store.state.bole.name}}</p>-->

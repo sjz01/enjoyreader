@@ -11,16 +11,10 @@ export default new Router({
     {
       path: '/bookcity',
       component: () => import('@/views/BookCity'),
-      children: [
-        {
-          path: "more",
-          component: () => import('@/components/More')
-        },
-        {
-          path: "bookdetail",
-          component: () => import('@/views/BookDetail')
-        }
-      ]
+    },
+    {
+      path: "/more",
+      component: () => import('@/components/More')
     },
     {
       path: '/bookshelf',

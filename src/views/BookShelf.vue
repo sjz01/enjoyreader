@@ -32,12 +32,17 @@
         </li>
       </ul>
     </div>
+    <Tabbar />
   </div>
 </template>
 
 <script>
+import Tabbar from "@/components/Tabbar"
 export default {
-  name: "BookShelf"
+  name: "BookShelf",
+   components: {
+    Tabbar
+  },
 };
 </script>
 

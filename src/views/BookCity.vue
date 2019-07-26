@@ -29,10 +29,13 @@
     <Type />
     <Type />
     <Type />
+    <!-- <More /> -->
+    <Tabbar />
     <!-- <Swiper /> -->
   </div>
 </template>
 <script>
+import Tabbar from "@/components/Tabbar"
 import Swiper from "@/components/Swiper";
 import Type from "@/components/Type"
 export default {
@@ -60,7 +63,7 @@ export default {
     };
   },
   components: {
-    Type
+    Type,Tabbar
     // Swiper
     // More,Book,BookDetail
   },

@@ -6,22 +6,19 @@
       <span>中国文学</span>
       <router-link to="/more">
         <span>
-          <button>更多></button>
+          <button  @click="changeTitle('更多')">更多></button>
         </span>
       </router-link>
       <div class="typeBook">
           <router-link to="/bookdetail">
-          <div></div>
+          <div @click="changeTitle('书籍详情')"></div>
           </router-link>
            <router-link to="/bookdetail">
-          <div></div>
+          <div @click="changeTitle('书籍详情')"></div>
           </router-link>
            <router-link to="/bookdetail">
-          <div></div>
+          <div @click="changeTitle('书籍详情')"></div>
           </router-link>
-<!--         
-        <div @click="gotodetail"></div>
-        <div @click="gotodetail"></div> -->
       </div>
     </div>
   </div>
@@ -29,7 +26,12 @@
 
 <script>
 export default {
-  name: "Type"
+  name: "Type",
+   methods: {
+    changeTitle(title) {
+      this.$store.commit("changeMytitle", { title });
+    }
+  }
 };
 </script>
 <style scoped>
