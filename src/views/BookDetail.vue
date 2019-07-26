@@ -63,9 +63,13 @@
 
 <script>
 export default {
-<<<<<<< HEAD
-  name: "BookDetail"
-};
+   name: "BookDetail",
+  methods: {
+    back() {
+      this.$router.go(-1);
+    }
+  }
+}
 </script>
 
 <style  lang="less" scoped>
@@ -133,45 +137,4 @@ export default {
     margin-bottom: 200px;
 }
 
-=======
-  name: "BookDetail",
-  methods: {
-    back() {
-      this.$router.go(-1);
-    }
-  }
-};
-</script>
-
-<style scoped>
-#book-detail {
-  background-color: #ffffff;
-  position: fixed;
-  z-index: 10;
-  width: 100%;
-  height: 100%;
-}
-.nav-bar {
-  width: 100%;
-  height: 50px;
-  background-color: #8a8a8a;
-  position: fixed;
-  top: 0;
-}
-.nav-bar span {
-        position: absolute;
-        width: 50px;
-        height: 100%;
-        color: white;
-        left: 10px;
-        line-height: 50px;
-    }
-p {
-  color: white;
-  font-size: 20px;
-  line-height: 50px;
-  text-align: center;
-  font-weight: 400;
-}
->>>>>>> 0028f7126038f037b4ed4ded2257a5918fc29e11
 </style>
