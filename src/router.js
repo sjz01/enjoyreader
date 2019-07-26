@@ -14,6 +14,7 @@ export default new Router({
     },
     {
       path: "/more",
+      name:"more",
       component: () => import('@/components/More')
     },
     {
@@ -38,6 +39,7 @@ export default new Router({
     },
     {
       path: "/bookdetail",
+      name:"datail",
       component: () => import('@/views/BookDetail')
     },
     {
