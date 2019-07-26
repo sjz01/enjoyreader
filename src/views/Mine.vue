@@ -48,7 +48,7 @@ export default {
   }
 }
 .Login {
-  font-size: 40px;
+  font-size: 2em;
   // color: aqua;
   line-height: 170px;
   color: #8a8a;
