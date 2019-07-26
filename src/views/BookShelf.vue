@@ -27,8 +27,8 @@
           <img src="http://img0.imgtn.bdimg.com/it/u=3963626460,748883260&fm=26&gp=0.jpg" alt />
           <p>书</p>
         </li>
-        <router-link to="/bookcity">
-        <li>
+        <router-link to="/bookcity" >
+        <li  @click="changeTitle('书城')">
           <img src="http://img0.imgtn.bdimg.com/it/u=2417024038,232503512&fm=26&gp=0.jpg" alt />
         </li>
         </router-link>
@@ -45,6 +45,11 @@ export default {
    components: {
     Tabbar
   },
+  methods:{
+     changeTitle(title) {
+      this.$store.commit("changeMytitle", { title });
+    }
+  }
 };
 </script>
 

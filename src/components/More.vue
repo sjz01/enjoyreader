@@ -58,8 +58,6 @@ export default {
   z-index: 10;
   width: 100%;
   height: 100%;
-  margin-top: 50px;
-  margin-bottom: 50px;
   .books {
     margin-top: 50px;
     margin-bottom: 50px;
@@ -78,6 +76,8 @@ export default {
           width: 80px;
           height: 120px;
           float: left;
+          box-shadow: 2px 2px 5px #8a8a8a;
+          border-radius: 5px;
         }
         .info {
           width: 150px;

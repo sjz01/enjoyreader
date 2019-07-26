@@ -5,20 +5,18 @@
     <div id="typeTop">
       <span>中国文学</span>
       <router-link to="/more">
-        <span>
-          <button  @click="changeTitle('更多')">更多></button>
-        </span>
+        <span @click="changeTitle('书城')" style="float:right;margin-right:10px;">更多></span>
       </router-link>
       <div class="typeBook">
-          <router-link to="/bookdetail">
-          <div @click="changeTitle('书籍详情')"></div>
-          </router-link>
-           <router-link to="/bookdetail">
-          <div @click="changeTitle('书籍详情')"></div>
-          </router-link>
-           <router-link to="/bookdetail">
-          <div @click="changeTitle('书籍详情')"></div>
-          </router-link>
+        <router-link to="/bookdetail">
+          <div @click="changeTitle('书城')"></div>
+        </router-link>
+        <router-link to="/bookdetail">
+          <div @click="changeTitle('书城')"></div>
+        </router-link>
+        <router-link to="/bookdetail">
+          <div @click="changeTitle('书城')"></div>
+        </router-link>
       </div>
     </div>
   </div>
@@ -27,7 +25,7 @@
 <script>
 export default {
   name: "Type",
-   methods: {
+  methods: {
     changeTitle(title) {
       this.$store.commit("changeMytitle", { title });
     }
@@ -59,21 +57,21 @@ span button {
   height: 120px;
   width: 80px;
   background: #8a8a8a;
-  border-radius: 5px;
+  border-radius: 10px;
   box-shadow: 2px 2px 5px #333;
 }
 .typeBook :nth-of-type(2) {
   height: 120px;
   width: 80px;
   background: #8a8a8a;
-  border-radius: 5px;
+  border-radius: 10px;
   box-shadow: 2px 2px 5px #333;
 }
 .typeBook :nth-of-type(3) {
   height: 120px;
   width: 80px;
   background: #8a8a8a;
-  border-radius: 5px;
+  border-radius: 10px;
   box-shadow: 2px 2px 5px #333;
 }
 </style>
