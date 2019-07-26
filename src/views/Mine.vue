@@ -18,12 +18,17 @@
       <!-- <div class="button">关于我们</div> -->
       <!-- <p class="button">关于我们</p> -->
     </div>
+      <Tabbar />
   </div>
 </template>
 
 <script>
+import Tabbar from "@/components/Tabbar"
 export default {
-  name: "Mine"
+  name: "Mine",
+   components: {
+    Tabbar
+  },
 };
 </script>
 

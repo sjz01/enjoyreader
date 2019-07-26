@@ -2,8 +2,7 @@
     <div id="more">
 <!-- 一个分类的全部图书 -->
         <!-- 是组件，也是路由 -->
-        更多
-        
+     这里是更多图书界面
     </div>
 </template>
 
@@ -15,7 +14,8 @@ export default {
 
 <style>
 #more{
-    margin-top: 100px;
+    margin-top: 50px;
+    
 }
 
 </style>
