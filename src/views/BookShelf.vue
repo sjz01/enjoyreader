@@ -27,9 +27,11 @@
           <img src="http://img0.imgtn.bdimg.com/it/u=3963626460,748883260&fm=26&gp=0.jpg" alt />
           <p>书</p>
         </li>
+        <router-link to="/bookcity">
         <li>
           <img src="http://img0.imgtn.bdimg.com/it/u=2417024038,232503512&fm=26&gp=0.jpg" alt />
         </li>
+        </router-link>
       </ul>
     </div>
     <Tabbar />
