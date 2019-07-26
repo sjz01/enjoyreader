@@ -2,20 +2,97 @@
     <div id="more">
 <!-- 一个分类的全部图书 -->
         <!-- 是组件，也是路由 -->
-     这里是更多图书界面
+      <ul class="books">
+<!--            循环-->
+            <li>
+                <div class="item">
+                    <img class="book-pic" src="http://img2.imgtn.bdimg.com/it/u=1110306649,2309417113&fm=26&gp=0.jpg" alt="图片加载异常">
+                    <div class="info">
+                        <h2 class="book-name" >title</h2>
+                        <p class="book-common">
+                            图书简介
+                        </p>
+                        <p class="book-classify">
+                            分类
+                        </p>
+                    </div>
+
+                </div>
+            </li>
+            <li>
+                <div class="item">
+                    <img class="book-pic" src="http://img2.imgtn.bdimg.com/it/u=1110306649,2309417113&fm=26&gp=0.jpg" alt="图片加载异常">
+                    <div class="info">
+                        <h2 class="book-name" >title</h2>
+                        <p class="book-common">
+                            图书简介
+                        </p>
+                        <p class="book-classify">
+                            分类
+                        </p>
+                    </div>
+
+                </div>
+            </li>
+        </ul>
     </div>
 </template>
 
 <script>
 export default {
-    name:"More"
-}
+  name: "More"
+};
 </script>
 
-<style>
-#more{
-    margin-top: 50px;
-    
-}
+<style lang='less' scoped>
+#more {
+  margin-top: 50px;
+  margin-bottom: 50px;
+    .books {
+            margin-top: 50px;
+            margin-bottom: 50px;
+            li {
+                height: 140px;
+                background-color: white;
 
+                .item {
+                    width: 94%;
+                    height: 100%;
+                    margin-left: 5%;
+                    box-sizing: border-box;
+                    padding:13px 0;
+
+                    .book-pic {
+                        width: 80px;
+                        height: 120px;
+                        float: left;
+                    }
+                    .info {
+                        width: 150px;
+                        height: 86px;
+                        float: left;
+                        margin-left: 10px;
+
+                        .book-name {
+                            font-size: 19px;
+                            line-height: 24px;
+                            width: 150px;
+                            overflow: hidden;
+                            white-space: nowrap;
+                            text-overflow: ellipsis;
+                        }
+                        .book-common,.book-classify{
+                            font-size: 15px;
+                            color: #666;
+                            line-height: 22px;
+                            width: 200px;
+                            overflow: hidden;
+                            white-space: nowrap;
+                            text-overflow: ellipsis;
+                        }
+                    }
+                }
+            }
+        }
+}
 </style>
