@@ -1,6 +1,7 @@
 <template>
   <div id="book-detail">
     <!-- 图书详情 -->
+<<<<<<< HEAD
     <div class="BookCover">
       <img src="http://img0.imgtn.bdimg.com/it/u=3963626460,748883260&fm=26&gp=0.jpg" alt />
       <p>书名：盗墓笔记</p>
@@ -58,11 +59,18 @@
          </div>
 
      </div>
+=======
+    <nav class="nav-bar">
+      <span @click="back">返回</span>
+      <p>图书详情</p>
+    </nav>
+>>>>>>> 0028f7126038f037b4ed4ded2257a5918fc29e11
   </div>
 </template>
 
 <script>
 export default {
+<<<<<<< HEAD
   name: "BookDetail"
 };
 </script>
@@ -132,4 +140,45 @@ export default {
     margin-bottom: 200px;
 }
 
+=======
+  name: "BookDetail",
+  methods: {
+    back() {
+      this.$router.go(-1);
+    }
+  }
+};
+</script>
+
+<style scoped>
+#book-detail {
+  background-color: #ffffff;
+  position: fixed;
+  z-index: 10;
+  width: 100%;
+  height: 100%;
+}
+.nav-bar {
+  width: 100%;
+  height: 50px;
+  background-color: #8a8a8a;
+  position: fixed;
+  top: 0;
+}
+.nav-bar span {
+        position: absolute;
+        width: 50px;
+        height: 100%;
+        color: white;
+        left: 10px;
+        line-height: 50px;
+    }
+p {
+  color: white;
+  font-size: 20px;
+  line-height: 50px;
+  text-align: center;
+  font-weight: 400;
+}
+>>>>>>> 0028f7126038f037b4ed4ded2257a5918fc29e11
 </style>

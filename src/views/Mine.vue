@@ -78,7 +78,8 @@ export default {
     height: 60px;
     border-radius: 20px;
     text-align: center;
-    border:1px solid #8a8a; 
+    background-color: #ffffff;
+    border:1px solid #8a8a8a; 
   }
 }
 </style>
