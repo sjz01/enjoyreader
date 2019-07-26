@@ -1,6 +1,8 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
-
+import wanglei from './wanglei'
+import qianyao from './qianyao'
+import bole from './bole'
 Vue.use(Vuex)
 
 export default new Vuex.Store({
@@ -15,5 +17,8 @@ export default new Vuex.Store({
   },
   actions: {
 
+  },
+  modules:{
+    wanglei,qianyao,bole
   }
 })
