@@ -27,5 +27,6 @@ p {
   line-height: 50px;
   text-align: center;
   font-weight: 400;
+  font-family: kaiti;
 }
 </style>

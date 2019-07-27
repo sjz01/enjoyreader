@@ -2,10 +2,11 @@
   <div id="book-city">
     <!-- 书城 -->
     <div id="search">
-      <form action>
-        <input type="search" placeholder="请输入书籍名称" />
+      <mt-search></mt-search>
+      <!-- <form action> -->
+        <!-- <input type="search" placeholder="请输入书籍名称" /> -->
         <!-- <button type="submit"><img src="../assets/搜索.png" alt=""></button> -->
-      </form>
+      <!-- </form> -->
     </div>
     <swiper :options="swiperOption" ref="mySwiper">
       <!-- slides -->
@@ -81,9 +82,10 @@ export default {
 <style scoped>
 #book-city {
   margin-top: 50px;
+  margin-bottom: 50px;
 }
 #search {
-  height: 38px;
+  height: 50px;
   width: 100%;
   border-radius: 5px;
   transition: 0.5s;
@@ -110,7 +112,7 @@ button {
   background-position: center;
   background-size: cover;
   width: 100%;
-  height: 120px;
+  height: 150px;
 }
 img {
   width: 100%;

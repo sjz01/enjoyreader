@@ -1,6 +1,10 @@
 <template>
   <div id="book-detail">
     <!-- 图书详情 -->
+    <nav class="nav-bar">
+      <span @click="back">返回</span>
+      <p>书籍详情</p>
+    </nav>
     <div class="BookCover">
       <img src="http://img0.imgtn.bdimg.com/it/u=3963626460,748883260&fm=26&gp=0.jpg" alt />
       <p>书名：盗墓笔记</p>
@@ -50,11 +54,11 @@
              <p>装帧</p>
          </div>
          <div class="left">
-             <p>具体出版社</p>
-             <p>具体出版年</p>
-             <p>具体页数</p>
-             <p>具体定价</p>
-             <p>具体装帧</p>
+             <p>中国友谊出版公司</p>
+             <p>2010-1</p>
+             <p>274</p>
+             <p>32.80元</p>
+             <p>平装</p>
          </div>
 
      </div>
@@ -64,7 +68,7 @@
 <script>
 export default {
    name: "BookDetail",
-  methods: {
+   methods: {
     back() {
       this.$router.go(-1);
     }
@@ -76,6 +80,9 @@ export default {
 #book-detail {
   margin-top: 50px;
   padding-top: 40px;
+   background-color: #ffffff;
+  width: 100%;
+  height: 100%;
 }
 .null {
   margin-top: 10px;
@@ -134,7 +141,32 @@ export default {
     float: left;
     margin:0 20px; 
     font-size: 0.8em;
-    margin-bottom: 200px;
+    margin-bottom: 50px;
 }
 
+.nav-bar {
+  width: 100%;
+  height: 50px;
+  background-color: #8a8a8a;
+  position: fixed;
+  top: 0;
+   position: fixed;
+  z-index: 10;
+}
+.nav-bar span {
+  position: absolute;
+  width: 50px;
+  height: 100%;
+  color: white;
+  left: 10px;
+  line-height: 50px;
+}
+.nav-bar p {
+  color: white;
+  font-size: 20px;
+  line-height: 50px;
+  text-align: center;
+  font-weight: 400;
+  font-family: kaiti;
+}
 </style>

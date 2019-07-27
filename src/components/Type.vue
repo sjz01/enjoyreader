@@ -5,7 +5,7 @@
     <div id="typeTop">
       <span>中国文学</span>
       <router-link to="/more">
-        <span @click="changeTitle('书城')" style="float:right;margin-right:10px;">更多></span>
+        <span @click="changeTitle('书城')" style="float:right;margin-right:14px;color:black; font-size: 16px;font-weight:400;">更多></span>
       </router-link>
       <div class="typeBook">
         <router-link to="/bookdetail">
@@ -17,7 +17,9 @@
         <router-link to="/bookdetail">
           <div @click="changeTitle('书城')"></div>
         </router-link>
+        
       </div>
+      <p class="e4e6f1"></p>
     </div>
   </div>
 </template>
@@ -38,12 +40,16 @@ export default {
 }
 #typeTop span {
   margin-left: 22px;
+  font-family: kaiti;
+  font-weight:600;
+  font-size: 20px;
   display: inline-block;
 }
-#typeTop span:nth-of-type(2) {
+/* #typeTop span:nth-of-type(2) {
+  font-size: 14px !important;
   float: right;
   margin-right: 22px;
-}
+} */
 span button {
   background: #eee;
   /* border-radius: 20px; */
@@ -73,5 +79,11 @@ span button {
   background: #8a8a8a;
   border-radius: 10px;
   box-shadow: 2px 2px 5px #333;
+}
+.e4e6f1{
+  margin-top: 20px;
+  height: 20px;
+  width: 100%;
+  background-color: #e4e6f1;
 }
 </style>

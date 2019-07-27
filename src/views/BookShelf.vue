@@ -56,6 +56,7 @@ export default {
 <style lang='less' scoped>
 #book-shelf {
   margin-top: 60px;
+  margin-bottom: 80px;
   width: 100%;
 }
 .bookone {
