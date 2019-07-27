@@ -62,6 +62,9 @@
          </div>
 
      </div>
+     <div style="clear:both"></div>
+      <div class="null"></div>
+       <div class="tou">购买链接</div>
   </div>
 </template>
 
@@ -106,6 +109,7 @@ export default {
 .tou {
   text-align: center;
   margin: 10px;
+  clear: both;
 }
 .tags {
   div {
@@ -142,6 +146,7 @@ export default {
     margin:0 20px; 
     font-size: 0.8em;
     margin-bottom: 50px;
+    height: 200px;
 }
 
 .nav-bar {
