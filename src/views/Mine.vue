@@ -5,7 +5,14 @@
     <div class="touxiang">
       <img src="@/assets/mineLogo.jpg" alt />
     </div>
-    <p class="Login">登录/注册</p>
+    <p class="Login">
+      <router-link to="/login">
+        <span>登录</span>
+      </router-link>/
+      <router-link to="/register">
+        <span>注册</span>
+      </router-link>
+    </p>
 
     <!-- <button>登录/注册</button> -->
 
@@ -18,17 +25,17 @@
       <!-- <div class="button">关于我们</div> -->
       <!-- <p class="button">关于我们</p> -->
     </div>
-      <Tabbar />
+    <Tabbar />
   </div>
 </template>
 
 <script>
-import Tabbar from "@/components/Tabbar"
+import Tabbar from "@/components/Tabbar";
 export default {
   name: "Mine",
-   components: {
+  components: {
     Tabbar
-  },
+  }
 };
 </script>
 
@@ -37,11 +44,14 @@ export default {
   margin-top: 50px;
   // text-align: center;
 }
+a{
+  color: #8a8a8a;
+}
 .touxiang {
   height: 130px;
   width: 130px;
   border-radius: 100px;
-  background-color: red;
+  // background-color: red;
   overflow: hidden;
   // display: inline-block;
   float: left;
@@ -53,33 +63,35 @@ export default {
   }
 }
 .Login {
-  font-size: 2em;
+  font-size: 1.5em;
   // color: aqua;
   line-height: 170px;
-  color: #8a8a;
+  color: #8a8a8a;
 }
 .about {
   width: 100%;
   text-align: center;
+  color: #8a8a8a;
   // background-color: blue;
 
   input {
-    margin-top:20px; 
+    margin-top: 20px;
     width: 90%;
     height: 60px;
     border-radius: 20px;
-    border:1px solid #8a8a; 
+    border: 1px solid #8a8a8a;
     text-align: center;
   }
 
-  button{
-    margin-top:40px; 
+  button {
+    margin-top: 40px;
     width: 90%;
     height: 60px;
     border-radius: 20px;
     text-align: center;
+      color: #8a8a8a;
     background-color: #ffffff;
-    border:1px solid #8a8a8a; 
+    border: 1px solid #8a8a8a;
   }
 }
 </style>

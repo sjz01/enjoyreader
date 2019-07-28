@@ -2,7 +2,7 @@
   <div id="book-detail">
     <!-- 图书详情 -->
     <nav class="nav-bar">
-      <span @click="back">返回</span>
+      <span @click="back"><img src="@/assets/返回1.png" alt=""></span>
       <p>书籍详情</p>
     </nav>
     <div class="BookCover">
@@ -174,4 +174,10 @@ export default {
   font-weight: 400;
   font-family: kaiti;
 }
+.nav-bar img{
+    width: 20px;
+    height: 20px;
+    margin-top: 15px;
+}
+
 </style>

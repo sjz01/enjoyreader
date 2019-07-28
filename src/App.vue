@@ -5,6 +5,8 @@
     <router-view></router-view>
     <router-view name="more"></router-view>
     <router-view name="detail"></router-view>
+    <router-view name="register"></router-view>
+    <router-view name="login"></router-view>
     <!-- <p>{{$store.state.wanglei.name}}</p>
       <p>{{$store.state.qianyao.name}}</p>
     <p>{{$store.state.bole.name}}</p>-->
@@ -17,6 +19,7 @@ import Navbar from "./components/Navbar";
 import BookCity from "./views/BookCity";
 import BookShelf from "./views/BookShelf";
 import BookDetail from "./views/BookDetail";
+
 
 export default {
   name: "App",

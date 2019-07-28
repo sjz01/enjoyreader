@@ -3,7 +3,7 @@
     <!-- 一个分类的全部图书 -->
     <!-- 是组件，也是路由 -->
     <nav class="nav-bar">
-      <span @click="back">返回</span>
+      <span @click="back"><img src="@/assets/返回1.png" alt=""></span>
       <p>更多图书</p>
     </nav>
     <ul class="books">
@@ -130,5 +130,10 @@ export default {
   text-align: center;
   font-weight: 400;
   font-family: kaiti;
+}
+.nav-bar img{
+    width: 20px;
+    height: 20px;
+    margin-top: 15px;
 }
 </style>
