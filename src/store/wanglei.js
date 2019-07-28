@@ -5,7 +5,14 @@ Vue.use(Vuex)
 
 export default new Vuex.Store({
   state: {
-    name:"wanglei"
+    name:"wanglei",
+    info:[{
+      username:"123456",
+      password:"123456"
+    }]
+  },
+  getters:{
+
   },
   mutations: {
    

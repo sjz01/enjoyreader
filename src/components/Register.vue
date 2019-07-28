@@ -15,7 +15,10 @@
       </form>
     </div>
     <div class="btn">
+      <router-link to="/mine">
       <button>注册</button>
+      </router-link>
+      
     </div>
   </div>
 </template>

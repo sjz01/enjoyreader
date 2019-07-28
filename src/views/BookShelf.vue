@@ -5,31 +5,31 @@
       <ul class="books">
         <li>
           <img src="http://img0.imgtn.bdimg.com/it/u=3963626460,748883260&fm=26&gp=0.jpg" alt />
-          <p>小公司小公gcgjjjjjjjjjjjjjjjjjjjjjjjjc</p>
+          <p>神雕侠侣</p>
         </li>
         <li>
           <img src="http://img0.imgtn.bdimg.com/it/u=3963626460,748883260&fm=26&gp=0.jpg" alt />
-          <p>书嘻哈帮</p>
+          <p>神雕侠侣</p>
         </li>
         <li>
           <img src="http://img0.imgtn.bdimg.com/it/u=3963626460,748883260&fm=26&gp=0.jpg" alt />
-          <p>书</p>
+          <p>神雕侠侣</p>
         </li>
         <li>
           <img src="http://img0.imgtn.bdimg.com/it/u=3963626460,748883260&fm=26&gp=0.jpg" alt />
-          <p>书</p>
+          <p>神雕侠侣</p>
         </li>
         <li>
           <img src="http://img0.imgtn.bdimg.com/it/u=3963626460,748883260&fm=26&gp=0.jpg" alt />
-          <p>书</p>
+          <p>神雕侠侣</p>
         </li>
         <li>
           <img src="http://img0.imgtn.bdimg.com/it/u=3963626460,748883260&fm=26&gp=0.jpg" alt />
-          <p>书</p>
+          <p>神雕侠侣</p>
         </li>
         <router-link to="/bookcity" >
-        <li  @click="changeTitle('书城')">
-          <img src="http://img0.imgtn.bdimg.com/it/u=2417024038,232503512&fm=26&gp=0.jpg" alt />
+        <li class="add" @click="changeTitle('书城')">
+          <img src="@/assets/添加.png" alt />
         </li>
         </router-link>
       </ul>
@@ -91,5 +91,14 @@ li p {
   height: 50px;
   overflow: hidden;
   text-overflow: ellipsis;
+}
+.add{
+  height: 120px;
+  width: 80px;
+}
+.add img{
+    width: 60px;
+    height: 80px;
+    margin: 20px auto;
 }
 </style>

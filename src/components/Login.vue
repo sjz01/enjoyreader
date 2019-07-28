@@ -1,7 +1,9 @@
 <template>
   <div id="register">
     <nav class="nav-bar">
-      <span @click="back"><img src="@/assets/返回1.png" alt=""></span>
+      <span @click="back">
+        <img src="@/assets/返回1.png" alt />
+      </span>
       <p>用户登录</p>
     </nav>
     <div class="zc">
@@ -9,12 +11,17 @@
     </div>
     <div class="top">
       <form action>
-        <input type="text" placeholder="用户名" name="u" />
-        <input type="password" placeholder="密码" name="p" />
+        <input type="text" v-model="username" placeholder="用户名" name="u" />
+        <input type="password" v-model="password" placeholder="密码" name="p" />
       </form>
+      <router-link to="/register">
+        <span>忘记密码？</span>
+      </router-link>
     </div>
     <div class="btn">
-      <button>登录</button>
+      <router-link to="/mine">
+        <button>登录</button>
+      </router-link>
     </div>
   </div>
 </template>
@@ -22,15 +29,25 @@
 <script>
 export default {
   name: "Login",
+  data(){
+    return{
+      username:'',
+      password:''
+    }
+  },
+  created(){
+      
+
+  },
    methods: {
     back() {
       this.$router.go(-1);
-    }
+    },
   }
 };
 </script>
 
-<style scoped>
+<style lang="less"  scoped>
 .nav-bar {
   width: 100%;
   height: 50px;
@@ -54,13 +71,13 @@ export default {
   font-weight: 400;
   font-family: kaiti;
 }
-.nav-bar img{
-    width: 20px;
-    height: 20px;
-    margin-top: 15px;
+.nav-bar img {
+  width: 20px;
+  height: 20px;
+  margin-top: 15px;
 }
 #register {
-position: fixed;
+  position: fixed;
   z-index: 10;
 
   margin: 0 auto;
@@ -79,8 +96,19 @@ position: fixed;
   font-family: STXingkai;
   font-size: 80px;
 }
+//router link 用a标签更改样式
+a {
+  color: #000000;
+}
 .top {
   margin: 70px auto;
+  position: relative;
+
+  span {
+    position: absolute;
+    margin-top: 10px;
+    margin-left: 70%;
+  }
 }
 form {
   text-align: center;
@@ -104,7 +132,7 @@ input {
 .btn {
   /* margin-top: 50px; */
   text-align: center;
-  margin-top: -50px;
+  margin-top: -20px;
 }
 .btn button {
   height: 42px;
