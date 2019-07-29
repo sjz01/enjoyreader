@@ -3,7 +3,7 @@
     <!-- 一个分类的全部图书 -->
     <!-- 是组件，也是路由 -->
     <nav class="nav-bar">
-      <span @click="back"><img src="@/assets/返回1.png" alt=""></span>
+      <span @click="back"><img src="@/assets/返回1.png" style=" z-index:10;" alt=""></span>
       <p>更多图书</p>
     </nav>
     <ul class="books">
@@ -56,6 +56,8 @@ export default {
   background-color: #ffffff;
   width: 100%;
   height: 100%;
+  z-index: 10;
+
   .books {
     margin-top: 50px;
     margin-bottom: 50px;
@@ -111,6 +113,7 @@ export default {
   height: 50px;
   background-color: #8a8a8a;
   position: fixed;
+  z-index: 10;
   top: 0;
 }
 .nav-bar span {
