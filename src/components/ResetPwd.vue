@@ -4,23 +4,19 @@
       <span @click="back">
         <img src="@/assets/返回1.png" alt />
       </span>
-      <p>用户登录</p>
+      <p>更换密码</p>
     </nav>
     <div class="zc">
-      <p>登录</p>
+      <p>新密码</p>
     </div>
     <div class="top">
       <form action>
-        <input type="text" v-model="username" placeholder="用户名" name="u" />
-        <input type="password" v-model="password" placeholder="密码" name="p" />
+        <input type="password" v-model="password" placeholder="新密码" name="p" />
       </form>
-      <router-link to="/forget">
-        <span>忘记密码？</span>
-      </router-link>
     </div>
     <div class="btn">
-      <router-link to="/mine">
-        <button>登录</button>
+      <router-link to="/login">
+        <button>提交</button>
       </router-link>
     </div>
   </div>

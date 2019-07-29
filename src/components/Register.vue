@@ -1,7 +1,9 @@
 <template>
   <div id="register">
     <nav class="nav-bar">
-      <span @click="back"><img src="@/assets/返回1.png" alt=""></span>
+      <span @click="back">
+        <img src="@/assets/返回1.png" alt />
+      </span>
       <p>用户注册</p>
     </nav>
     <div class="zc">
@@ -11,14 +13,22 @@
       <form action>
         <input type="text" placeholder="用户名" name="u" />
         <input type="password" placeholder="密码" name="p" />
-        <input type="password" placeholder="确认密码" name="p" />
+        <p>请回答下面问题</p>
+        <p>你最喜欢的颜色是？</p>
+        <form id="question">
+          <input type="radio" name="color" value="红" checked />红
+          
+          <input type="radio" name="color" value="绿" />绿
+        
+          <input type="radio" name="color" value="蓝" />蓝
+          
+        </form>
       </form>
     </div>
     <div class="btn">
       <router-link to="/mine">
-      <button>注册</button>
+        <button>注册</button>
       </router-link>
-      
     </div>
   </div>
 </template>
@@ -26,7 +36,7 @@
 <script>
 export default {
   name: "Register",
-   methods: {
+  methods: {
     back() {
       this.$router.go(-1);
     }
@@ -34,7 +44,7 @@ export default {
 };
 </script>
 
-<style scoped>
+<style lang="less" scoped>
 .nav-bar {
   width: 100%;
   height: 50px;
@@ -58,14 +68,14 @@ export default {
   font-weight: 400;
   font-family: kaiti;
 }
-.nav-bar img{
-    width: 20px;
-    height: 20px;
-    margin-top: 15px;
+.nav-bar img {
+  width: 20px;
+  height: 20px;
+  margin-top: 15px;
 }
 
 #register {
-position: fixed;
+  position: fixed;
   z-index: 10;
   margin: 0 auto;
   background: url(../assets/背景1.jpg);
@@ -88,6 +98,36 @@ position: fixed;
 }
 form {
   text-align: center;
+  p{
+    // margin-top: 30px;
+    margin-left: 20px;
+    margin-top: 10px;
+    font-size: 20px;
+    font-family: kaiti;
+    color: white;
+  }
+  p:nth-of-type(1){
+    margin-top: 30px;
+    
+  }
+  #question input{
+    width: 20px;
+    height: 20px;
+    color: #ffffff;
+    text-align: center;
+    padding-bottom: 10px;
+    vertical-align:middle; 
+    margin-top:-2px; 
+    margin-bottom:1px;
+  }
+  #question{
+    margin-top: 10px;
+    color: white;
+    // text-align: center;
+    font-size: 20px;
+    font-family: kaiti;
+  }
+
 }
 input {
   width: 75%;
@@ -99,11 +139,16 @@ input {
   text-shadow: 1px;
   color: black;
 }
+input:focus {
+  outline: none;
+  border: 2px solid #ffffff;
+}
 ::-webkit-input-placeholder {
   /* WebKit browsers */
   color: #ffffff;
-  font-size: 14px;
+  font-size: 18px;
   text-indent: 0.4rem;
+  font-family: kaiti;
 }
 .btn {
   /* margin-top: 50px; */
@@ -117,5 +162,8 @@ input {
   color: #8a8a8a;
   border: 2px solid #eee;
   border-radius: 20px;
+  outline: none;
+   font-family: kaiti;
+   font-size: 20px;
 }
 </style>
