@@ -136,7 +136,7 @@ export default {
     p {
       text-indent: 2em;
       font-family: fangsong;
-    //   margin: 1px 20px;
+      margin-bottom:14px; 
     }
   }
 }
@@ -146,7 +146,7 @@ export default {
     margin:0 20px; 
     font-size: 0.8em;
     margin-bottom: 50px;
-    height: 200px;
+    height: 40px;
 }
 
 .nav-bar {
