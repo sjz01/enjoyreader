@@ -26,9 +26,7 @@
       <div class="swiper-pagination" slot="pagination"></div>
     </swiper>
     
-    <Type />
-    <Type />
-    <Type />
+
     <Type />
     <!-- <More /> -->
     <Tabbar />
