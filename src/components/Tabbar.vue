@@ -38,35 +38,31 @@ export default {
   background-color: white;
   text-align: center;
   border-top: 1px solid #8a8a8a;
+
+  a {
+    color: #8a8a8a;
+     cursor: pointer;
+       text-decoration: none;
+  }
 }
 img {
   width: 22px;
   height: 22px;
 }
-a{
+
+.router-link-exact-active p {
   text-decoration: none;
+     color:deepskyblue;
 }
-.router-link-active {
-  text-decoration: none;
-}
-// .router-link-active {
-//   text-decoration: none;
-//   color: #e54847;
-// }
-// a {
-//   display: block;
-//   text-decoration: none;
-//   overflow: hidden;
-// }
 
 p:nth-of-type(1) {
   font-family: myFont;
   font-size: 28px;
-  color: #8a8a8a;
+  // color: #8a8a8a;
 }
 p:nth-of-type(2) {
   font-family: fangsong;
   // font-size: 28px;
-  color: #8a8a8a;
+  // color: #8a8a8a;
 }
 </style>
