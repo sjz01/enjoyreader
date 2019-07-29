@@ -9,30 +9,16 @@
     <ul class="books">
       <!--            循环-->
       <li>
-        <div class="item">
+        <div class="item"  v-for="(mysrc,key) in mydata" :key="key">
           <img
             class="book-pic"
-            src="http://img2.imgtn.bdimg.com/it/u=1110306649,2309417113&fm=26&gp=0.jpg"
+            :src=mysrc.img
             alt="图片加载异常"
           />
           <div class="info">
-            <h2 class="book-name">title</h2>
-            <p class="book-common">图书简介</p>
-            <p class="book-classify">分类</p>
-          </div>
-        </div>
-      </li>
-      <li>
-        <div class="item">
-          <img
-            class="book-pic"
-            src="http://img2.imgtn.bdimg.com/it/u=1110306649,2309417113&fm=26&gp=0.jpg"
-            alt="图片加载异常"
-          />
-          <div class="info">
-            <h2 class="book-name">title</h2>
-            <p class="book-common">图书简介</p>
-            <p class="book-classify">分类</p>
+            <h2 class="book-name">{{mysrc.title}}</h2>
+            <p class="book-common">图书简介:{{mysrc.sub2}}</p>
+            <p class="book-classify">分类:{{mysrc.catalog}}</p>
           </div>
         </div>
       </li>
@@ -43,21 +29,35 @@
 <script>
 export default {
   name: "More",
+  data(){
+    return{
+      mydata:[],
+    }
+  },
   methods: {
     back() {
       this.$router.go(-1);
     }
-  }
-};
+  },
+  created(){
+    // 发起请求
+    this.$axios.get("/api/data/?id=64&key=AeHG+dFkG93+ip2L8Yo2QGzDMwTgsJeZ/px06Q&catalog_id=242&pn=10&rn=15")
+    .then((res)=>{
+      console.log(res.data.result.data);
+      this.mydata = res.data.result.data
+      // console.log(mysrc)
+    })
+}
+}
 </script>
 
 <style  lang='less' scoped>
 #more {
   background-color: #ffffff;
-  position: fixed;
-  z-index: 10;
+  // position: fixed;
+  // z-index: 10;
   width: 100%;
-  height: 100%;
+  // height: 100%;
   .books {
     margin-top: 50px;
     margin-bottom: 50px;
