@@ -10,7 +10,7 @@
       <p>书架</p>
     </router-link>
     <router-link to="/mine">
-      <p @click="changeTitle('我')">&#xe512;</p>
+      <p @click="changeTitle('我')">&#xe50c;</p>
       <p>我</p>
     </router-link>
   </div>
