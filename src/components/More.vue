@@ -54,8 +54,6 @@ export default {
 <style  lang='less' scoped>
 #more {
   background-color: #ffffff;
-  // position: fixed;
-  // z-index: 10;
   width: 100%;
   // height: 100%;
   .books {
