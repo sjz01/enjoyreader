@@ -43,7 +43,12 @@ img {
   width: 22px;
   height: 22px;
 }
-
+a{
+  text-decoration: none;
+}
+.router-link-active {
+  text-decoration: none;
+}
 // .router-link-active {
 //   text-decoration: none;
 //   color: #e54847;
