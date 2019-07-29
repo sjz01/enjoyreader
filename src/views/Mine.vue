@@ -94,7 +94,7 @@ a{
   }
   input:focus{
     outline: none;
-    border: 1px solid red;
+    border: 1px solid deepskyblue;
   }
 
   button {
