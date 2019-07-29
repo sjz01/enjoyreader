@@ -2,7 +2,9 @@
   <div id="book-detail">
     <!-- 图书详情 -->
     <nav class="nav-bar">
-      <span @click="back"><img src="@/assets/返回1.png" alt=""></span>
+      <span @click="back">
+        <img src="@/assets/返回1.png" alt />
+      </span>
       <p>书籍详情</p>
     </nav>
     <div class="BookCover">
@@ -42,48 +44,57 @@
         </p>
       </div>
     </div>
-     <div class="null"></div>
-     <div class="bookImage">
-         <div class="tou">书本信息</div>
-         <!-- <p>出版社</p> -->
-         <div class="left">
-             <p>出版社</p>
-             <p>出版年</p>
-             <p>页数</p>
-             <p>定价</p>
-             <p>装帧</p>
-         </div>
-         <div class="left">
-             <p>中国友谊出版公司</p>
-             <p>2010-1</p>
-             <p>274</p>
-             <p>32.80元</p>
-             <p>平装</p>
-         </div>
+    <div class="null"></div>
+    <div class="bookImage">
+      <div class="tou">书本信息</div>
+      <!-- <p>出版社</p> -->
+      <div class="left">
+        <p>出版社</p>
+        <p>出版年</p>
+        <p>页数</p>
+        <p>定价</p>
+        <p>装帧</p>
 
-     </div>
-     <div style="clear:both"></div>
-      <div class="null"></div>
-       <div class="tou">购买链接</div>
+        <p>购买链接</p>
+      </div>
+      <div class="left">
+        <p>中国友谊出版公司</p>
+        <p>2010-1</p>
+        <p>274</p>
+        <p>32.80元</p>
+        <p>平装</p>
+        <p>www.jd.com</p>
+      </div>
+    </div>
+    <div style="clear:both"></div>
+    <div class="null"></div>
+    <div class="tou" style=" color: deepskyblue;" @click="join">添加书架</div>
   </div>
 </template>
 
 <script>
+import { Toast } from 'mint-ui';
 export default {
-   name: "BookDetail",
-   methods: {
+  name: "BookDetail",
+  methods: {
     back() {
       this.$router.go(-1);
+    },
+    join() {
+      Toast({
+        message: "操作成功",
+
+      });
     }
   }
-}
+};
 </script>
 
 <style  lang="less" scoped>
 #book-detail {
   margin-top: 50px;
   padding-top: 40px;
-   background-color: #ffffff;
+  background-color: #ffffff;
   width: 100%;
   height: 100%;
 }
@@ -110,6 +121,7 @@ export default {
   text-align: center;
   margin: 10px;
   clear: both;
+
 }
 .tags {
   div {
@@ -120,7 +132,7 @@ export default {
       display: inline-block;
       margin-left: 20px;
       font-size: 0.8em;
-      background-color: #FDDD9B;
+      background-color: #fddd9b;
       // border: 1px solid red;
       border-radius: 2px;
     }
@@ -136,17 +148,17 @@ export default {
     p {
       text-indent: 2em;
       font-family: fangsong;
-      margin-bottom:14px; 
+      margin-bottom: 14px;
     }
   }
 }
-.left{
-    color: #8a8a8a;
-    float: left;
-    margin:0 20px; 
-    font-size: 0.8em;
-    margin-bottom: 50px;
-    height: 40px;
+.left {
+  color: #8a8a8a;
+  float: left;
+  margin: 0 20px;
+  font-size: 0.8em;
+  margin-bottom: 50px;
+  height: 60px;
 }
 
 .nav-bar {
@@ -155,7 +167,7 @@ export default {
   background-color: #8a8a8a;
   position: fixed;
   top: 0;
-   position: fixed;
+  position: fixed;
   z-index: 10;
 }
 .nav-bar span {
@@ -174,10 +186,9 @@ export default {
   font-weight: 400;
   font-family: kaiti;
 }
-.nav-bar img{
-    width: 20px;
-    height: 20px;
-    margin-top: 15px;
+.nav-bar img {
+  width: 20px;
+  height: 20px;
+  margin-top: 15px;
 }
-
 </style>
