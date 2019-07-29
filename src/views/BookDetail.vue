@@ -87,6 +87,13 @@ export default {
       });
     }
   },
+  // created(){
+  //   //发起请求
+  //   this.$axios.get("/api/data/?id=64&key=AeHG+dFkG93+ip2L8Yo2QGzDMwTgsJeZ/px06Q&catalog_id=242&pn=10&rn=20")
+  //   .then((data)=>{
+  //     console.log(data);
+  //   })
+  // }
   // mounted(){
   //   setTimeout(function(){
   //     Toast({
