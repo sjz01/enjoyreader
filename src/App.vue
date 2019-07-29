@@ -7,6 +7,9 @@
     <router-view name="detail"></router-view>
     <router-view name="register"></router-view>
     <router-view name="login"></router-view>
+    <router-view name="forget"></router-view>
+    <router-view name="question"></router-view>
+    <router-view name="resetpwd"></router-view>
     <!-- <p>{{$store.state.wanglei.name}}</p>
       <p>{{$store.state.qianyao.name}}</p>
     <p>{{$store.state.bole.name}}</p>-->

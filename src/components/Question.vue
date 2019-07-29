@@ -4,23 +4,28 @@
       <span @click="back">
         <img src="@/assets/返回1.png" alt />
       </span>
-      <p>用户登录</p>
+      <p>忘记密码</p>
     </nav>
     <div class="zc">
-      <p>登录</p>
+      <p>回答问题</p>
     </div>
     <div class="top">
-      <form action>
-        <input type="text" v-model="username" placeholder="用户名" name="u" />
-        <input type="password" v-model="password" placeholder="密码" name="p" />
-      </form>
-      <router-link to="/forget">
-        <span>忘记密码？</span>
-      </router-link>
+      <p>你最喜欢的颜色是？</p>
+        <form id="question">
+          <input type="radio" name="color" value="红" checked />红
+          
+          <input type="radio" name="color" value="绿" />绿
+        
+          <input type="radio" name="color" value="蓝" />蓝
+          
+        </form>
     </div>
     <div class="btn">
-      <router-link to="/mine">
-        <button>登录</button>
+      <!-- 此处点击判断username是否为空，为空提示 请输入
+      输入如果与曾输入不符提示 输入错误
+      输入无误 跳转到回答问题-->
+      <router-link to="/resetpwd">
+      <button>提交</button>
       </router-link>
     </div>
   </div>
@@ -28,11 +33,10 @@
 
 <script>
 export default {
-  name: "Login",
+  name: "Forget",
   data() {
     return {
-      username: "",
-      password: ""
+      username: ""
     };
   },
   created() {},
@@ -98,15 +102,33 @@ a {
   color: #000000;
 }
 .top {
-  margin: 70px auto;
-  position: relative;
+  margin: 100px 0 40px 0;
 
-  span {
-    position: absolute;
-    margin-top: 10px;
-    margin-left: 70%;
+  p {
+    text-align: center;
+    font-size: 26px;
+    font-family: kaiti;
+
+    
   }
 }
+ #question input{
+    width: 20px;
+    height: 20px;
+    color: #ffffff;
+    text-align: center;
+    padding-bottom: 10px;
+    vertical-align:middle; 
+    margin-top:-2px; 
+    margin-bottom:1px;
+  }
+  #question{
+    margin-top: 20px;
+    color: #000000;
+    // text-align: center;
+    font-size: 26px;
+    font-family: kaiti;
+  }
 form {
   text-align: center;
 }
@@ -122,20 +144,19 @@ input {
 }
 input:focus {
   outline: none;
-   border: 2px solid #ffffff;
+  border: 2px solid #ffffff;
 }
 ::-webkit-input-placeholder {
   /* WebKit browsers */
   color: #ffffff;
-  font-size: 14px;
-  text-indent: 0.4rem;
-   font-family: kaiti;
   font-size: 18px;
+  text-indent: 0.4rem;
+  font-family: kaiti;
 }
 .btn {
   /* margin-top: 50px; */
   text-align: center;
-  margin-top: -20px;
+  margin-top: 10px;
 }
 .btn button {
   height: 42px;

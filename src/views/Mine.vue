@@ -21,7 +21,7 @@
     <div class="about">
       <input type="text" name id placeholder="个性签名" />
       <br />
-      <button @click=alert()>关于我们</button>
+      <button @click="alert()">关于我们</button>
       <!-- <div class="button">关于我们</div> -->
       <!-- <p class="button">关于我们</p> -->
     </div>
@@ -31,19 +31,19 @@
 
 <script>
 import Tabbar from "@/components/Tabbar";
-import { MessageBox } from 'mint-ui';
+import { MessageBox } from "mint-ui";
 export default {
   name: "Mine",
   components: {
     Tabbar
   },
-  methods:{
-    alert(){
-     MessageBox({
-     title: '关于我们',
-     message: '团队：Supreme <br>成员:王磊,张倩瑶,蒙伯乐',
-    //  showCancelButton: true
-});
+  methods: {
+    alert() {
+      MessageBox({
+        title: "关于我们",
+        message: "团队：Supreme <br>成员:王磊,张倩瑶,蒙伯乐"
+        //  showCancelButton: true
+      });
     }
   }
 };
@@ -52,9 +52,16 @@ export default {
 <style lang="less"  scoped>
 #mine {
   margin-top: 50px;
-  // text-align: center;
+  z-index: 9;
+  background: url(../assets/背景123.jpg);
+  height: 100%;
+  width: 100%;
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  position: fixed;
+  top: 0;
 }
-a{
+a {
   color: #8a8a8a;
 }
 .touxiang {
@@ -77,6 +84,8 @@ a{
   // color: aqua;
   line-height: 170px;
   color: #8a8a8a;
+   font-family: kaiti;
+  
 }
 .about {
   width: 100%;
@@ -91,8 +100,10 @@ a{
     border-radius: 20px;
     border: 1px solid #8a8a8a;
     text-align: center;
+    font-family: kaiti;
+    font-size: 20px;
   }
-  input:focus{
+  input:focus {
     outline: none;
     border: 1px solid deepskyblue;
   }
@@ -103,9 +114,11 @@ a{
     height: 60px;
     border-radius: 20px;
     text-align: center;
-      color: #8a8a8a;
+    color: #8a8a8a;
     background-color: #ffffff;
     border: 1px solid #8a8a8a;
+    font-family: kaiti;
+    font-size: 20px;
   }
 }
 </style>

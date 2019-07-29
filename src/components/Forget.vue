@@ -4,23 +4,22 @@
       <span @click="back">
         <img src="@/assets/返回1.png" alt />
       </span>
-      <p>用户登录</p>
+      <p>忘记密码</p>
     </nav>
     <div class="zc">
-      <p>登录</p>
+      <p>找回密码</p>
     </div>
     <div class="top">
       <form action>
         <input type="text" v-model="username" placeholder="用户名" name="u" />
-        <input type="password" v-model="password" placeholder="密码" name="p" />
       </form>
-      <router-link to="/forget">
-        <span>忘记密码？</span>
-      </router-link>
     </div>
     <div class="btn">
-      <router-link to="/mine">
-        <button>登录</button>
+      <!-- 此处点击判断username是否为空，为空提示 请输入
+      输入如果与曾输入不符提示 输入错误
+      输入无误 跳转到回答问题-->
+      <router-link to="/question">
+      <button>提交</button>
       </router-link>
     </div>
   </div>
@@ -28,17 +27,21 @@
 
 <script>
 export default {
-  name: "Login",
+  name: "Forget",
   data() {
     return {
-      username: "",
-      password: ""
+      username: ""
     };
   },
   created() {},
   methods: {
     back() {
       this.$router.go(-1);
+    },
+    submit(){
+     if(this.data.username == ""){
+         alert("请输入用户名");
+     }
     }
   }
 };
@@ -122,15 +125,14 @@ input {
 }
 input:focus {
   outline: none;
-   border: 2px solid #ffffff;
+  border: 2px solid #ffffff;
 }
 ::-webkit-input-placeholder {
   /* WebKit browsers */
   color: #ffffff;
-  font-size: 14px;
-  text-indent: 0.4rem;
-   font-family: kaiti;
   font-size: 18px;
+  text-indent: 0.4rem;
+  font-family: kaiti;
 }
 .btn {
   /* margin-top: 50px; */

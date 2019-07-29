@@ -53,6 +53,21 @@ export default new Router({
       component: () => import('@/components/Login')
     },
     {
+      path: "/forget",
+      name:"forget",
+      component: () => import('@/components/Forget')
+    },
+    {
+      path: "/question",
+      name:"question",
+      component: () => import('@/components/Question')
+    },
+    {
+      path: "/resetpwd",
+      name:"questresetpwdion",
+      component: () => import('@/components/ResetPwd')
+    },
+    {
       // 如果用户随意输入了不合法的路由，那么一般情况下有两种操作
       // 1. 提示用户404，给按钮点击跳转
       // 2. 重定向 到首页

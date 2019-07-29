@@ -83,6 +83,7 @@ export default {
 #book-city {
   margin-top: 50px;
   margin-bottom: 50px;
+  
 }
 #search {
   height: 50px;

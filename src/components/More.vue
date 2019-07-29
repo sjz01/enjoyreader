@@ -55,7 +55,12 @@ export default {
 #more {
   background-color: #ffffff;
   width: 100%;
+<<<<<<< HEAD
   // height: 100%;
+=======
+  height: 100%;
+  
+>>>>>>> 0d79bf276a101aa419f0125209045f47b76c27c7
   .books {
     margin-top: 50px;
     margin-bottom: 50px;
