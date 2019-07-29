@@ -21,7 +21,7 @@
     <div class="about">
       <input type="text" name id placeholder="个性签名" />
       <br />
-      <button>关于我们</button>
+      <button @click=alert()>关于我们</button>
       <!-- <div class="button">关于我们</div> -->
       <!-- <p class="button">关于我们</p> -->
     </div>
@@ -31,10 +31,20 @@
 
 <script>
 import Tabbar from "@/components/Tabbar";
+import { MessageBox } from 'mint-ui';
 export default {
   name: "Mine",
   components: {
     Tabbar
+  },
+  methods:{
+    alert(){
+     MessageBox({
+     title: '关于我们',
+     message: '团队：Supreme <br>成员:王磊,张倩瑶,蒙伯乐',
+    //  showCancelButton: true
+});
+    }
   }
 };
 </script>
@@ -81,6 +91,10 @@ a{
     border-radius: 20px;
     border: 1px solid #8a8a8a;
     text-align: center;
+  }
+  input:focus{
+    outline: none;
+    border: 1px solid red;
   }
 
   button {
