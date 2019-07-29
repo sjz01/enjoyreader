@@ -7,3 +7,9 @@
         url('./font/iconfont.ttf') format('truetype'),
         url('./font/iconfont.svg#iconfont') format('svg');
   }
+
+
+  .myIcon:after {
+    font-family: "myFont";
+    content: "\e606";
+  }

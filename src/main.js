@@ -11,6 +11,7 @@ Vue.use(Mint);
 import '../public/reset.css'
 // 引入myfont.css到全局
 import '../public/myfont.css'
+
 // 引入swiper组件
 import VueAwesomeSwiper from 'vue-awesome-swiper'
 // 引入swiper需要的样式
