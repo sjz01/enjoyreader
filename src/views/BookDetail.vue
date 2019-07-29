@@ -6,7 +6,7 @@
       <p>书籍详情</p>
     </nav>
     <div class="BookCover">
-      <img src="http://img0.imgtn.bdimg.com/it/u=3963626460,748883260&fm=26&gp=0.jpg" alt />
+      <img :src=bookSrc alt />
       <p>书名：盗墓笔记</p>
       <span>[中]南派三叔</span>
     </div>
@@ -76,6 +76,13 @@ import { Toast } from 'mint-ui';
 import { setTimeout } from 'timers';
 export default {
    name: "BookDetail",
+   data(){
+     return{
+       bookSrc:"",
+       bookName:"",
+       bookIntroduce:"",
+     }
+   },
    methods: {
     back() {
       this.$router.go(-1);
@@ -87,21 +94,17 @@ export default {
       });
     }
   },
-  // created(){
-  //   //发起请求
-  //   this.$axios.get("/api/data/?id=64&key=AeHG+dFkG93+ip2L8Yo2QGzDMwTgsJeZ/px06Q&catalog_id=242&pn=10&rn=20")
-  //   .then((data)=>{
-  //     console.log(data);
-  //   })
-  // }
-  // mounted(){
-  //   setTimeout(function(){
-  //     Toast({
-  //       message: '操作成功',
-  //       iconClass: 'icon myIcon'
-  //     });
-  //   },2000) 
-  // }
+  created(){
+    // 发起请求
+    this.$axios.get("/api/data/?id=64&key=AeHG+dFkG93+ip2L8Yo2QGzDMwTgsJeZ/px06Q&catalog_id=242&pn=10&rn=20")
+    .then((res)=>{
+      console.log(res.data.result.data[0].img);
+      this.bookSrc = res.data.result.data[0].img
+
+      // console.log(mysrc)
+    })
+  }
+
 }
 </script>
 
