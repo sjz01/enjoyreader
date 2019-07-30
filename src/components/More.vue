@@ -10,11 +10,9 @@
       <!--            循环-->
       <li>
         <div class="item"  v-for="(mysrc,key) in mydata" :key="key">
-          <img
-            class="book-pic"
-            :src=mysrc.img
-            alt="图片加载异常"
-          />
+          <!-- <img class="book-pic" :src=mysrc.img alt="图片加载异常"/> -->
+      
+          <router-link :to="{path: '/bookdetail',params:{id:mydata.title}}" tag="img"  class="book-pic" :src=mysrc.img alt="图片加载异常" @click="tp">  </router-link>
           <div class="info">
             <h2 class="book-name">{{mysrc.title}}</h2>
             <p class="book-common">图书简介:{{mysrc.sub2}}</p>
@@ -32,20 +30,24 @@ export default {
   data(){
     return{
       mydata:[],
+      key:"",
     }
   },
   methods: {
     back() {
       this.$router.go(-1);
+    },
+    tp(){
+      $this.$store.state.myData=mydata
     }
   },
   created(){
     // 发起请求
     this.$axios.get("api/goodbook/catalog?key=b72dfbf2e7198d964adb73307fe02443")
     .then((res)=>{
-      console.log(res);
-      
-      // console.log(mysrc)
+      // console.log(res.data.result.data);
+      this.mydata = res.data.result.data
+      console.log(this.mydata[key])
     })
 }
 }

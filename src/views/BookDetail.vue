@@ -6,8 +6,8 @@
       <p>书籍详情</p>
     </nav>
     <div class="BookCover">
-      <img :src=bookSrc alt />
-      <p>书名：盗墓笔记</p>
+      <img :src=img alt />
+      <p>书名：{{title}}</p>
       <span>[中]南派三叔</span>
     </div>
     <div class="null"></div>
@@ -33,13 +33,10 @@
     </div>
     <div class="null"></div>
     <div class="introduce">
-      <p class="tou">书籍简介</p>
+      <p class="tou">书籍简介{{mid}}</p>
       <div>
-        <p>出身“老九门”世家的吴邪，因身为考古学家的父母在某次保护国家文物行动时被国外盗墓团伙杀害，吴家为保护吴邪安全将他送去德国读书，因而吴邪对“考古”事业有着与生俱来的兴趣。</p>
-        <p>
-          在一次护宝过程中他偶然获得一张记载着古墓秘密的战国帛书，为赶在不明势力之前解开帛书秘密，保护古墓中文物不受侵害，按照帛书的指引吴邪跟随三叔吴三省、潘子以及神秘小哥张起灵来到鲁殇王墓探究七星鲁王宫的秘密。
-          在古墓中，吴邪结识了前来探秘的王胖子并救下身份不明的阿宁，经过一系列惊险刺激匪夷所思的事件之后，众人又发现了更多未解的谜团。吴邪等人在和不明势力斗智斗勇的同时又踏上了新的探秘之旅。
-        </p>
+        <p>{{sub2}}</p>
+      
       </div>
     </div>
      <div class="null"></div>
@@ -60,7 +57,7 @@
              <p>274</p>
              <p>32.80元</p>
              <p>平装</p>
-             <p>www.jingdong.com</p>
+             <p>{{online}}</p>
          </div>
 
      </div>
@@ -74,13 +71,16 @@
 //进入书架弹出组件
 import { Toast } from 'mint-ui';
 import { setTimeout } from 'timers';
+// import func from '../../vue-temp/vue-editor-bridge';
 export default {
    name: "BookDetail",
-   data(){
+   data(){ 
      return{
-       bookSrc:"",
-       bookName:"",
-       bookIntroduce:"",
+       data:"",
+       img:"",
+       title:"",
+       sub2:"",
+       online:""
      }
    },
    methods: {
@@ -94,15 +94,30 @@ export default {
       });
     }
   },
-  created(){
-    // 发起请求
-    this.$axios.get("/api/data/?id=64&key=AeHG+dFkG93+ip2L8Yo2QGzDMwTgsJeZ/px06Q&catalog_id=242&pn=10&rn=20")
-    .then((res)=>{
-      console.log(res.data.result.data[0].img);
-      this.bookSrc = res.data.result.data[0].img
 
-      // console.log(mysrc)
-    })
+
+  //磊
+  // created(){
+  //   // 发起请求
+  //   this.$axios.get("/api/data/?id=64&key=AeHG+dFkG93+ip2L8Yo2QGzDMwTgsJeZ/px06Q&catalog_id=242&pn=10&rn=5")
+  //   .then((res)=>{
+  //     // console.log(res);
+  //     this.$router.params.title = res.data.result.data.title;
+  //     // this.img = res.data.result.data.img;
+  //     // this.sub2 = res.data.result.data.sub2;
+  //     // this.online = res.data.result.data[0].online;
+  //     console.log(this.$route.params.title)
+  //   })
+  // },
+  computed:{
+    // gettitle(){
+    //     return this.$$route.params.title;
+    // }
+    mid:function(){
+    
+        return this.$route.params.id
+      
+    }
   }
 
 }
