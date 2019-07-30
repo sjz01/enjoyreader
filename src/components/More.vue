@@ -7,12 +7,12 @@
       <p>更多图书</p>
     </nav>
     <ul class="books">
-      <!--            循环-->
+      <!--循环-->
       <li>
-        <div class="item"  v-for="(mysrc,key) in mydata" :key="key">
+        <div class="item"  v-for="(mysrc,key) in mydata" :key="key" @click="dj(key)">
           <!-- <img class="book-pic" :src=mysrc.img alt="图片加载异常"/> -->
       
-          <router-link :to="{path: '/bookdetail',params:{id:mydata.title}}" tag="img"  class="book-pic" :src=mysrc.img alt="图片加载异常" @click="tp">  </router-link>
+          <router-link :to="{path: '/bookdetail',params:{id:mydata.title}}" tag="img"  class="book-pic" :src=mysrc.img alt="图片加载异常">  </router-link>
           <div class="info">
             <h2 class="book-name">{{mysrc.title}}</h2>
             <p class="book-common">图书简介:{{mysrc.sub2}}</p>
@@ -37,18 +37,21 @@ export default {
     back() {
       this.$router.go(-1);
     },
-    tp(){
-      $this.$store.state.myData=mydata
+    dj(key){
+      console.log(key)
+      this.$store.state.content = key
+      console.log(this.$store.state.content)
     }
   },
   created(){
     // 发起请求
-    this.$axios.get("api/goodbook/catalog?key=b72dfbf2e7198d964adb73307fe02443")
+    this.$axios.get("api/data/?id=64&key=XOjC/NViS4/+ipyL84oxT2zBOQTgsJeZ/px06Q&catalog_id=242&pn=10&rn=20")
     .then((res)=>{
-      // console.log(res.data.result.data);
+      console.log(res.data.result.data);
       this.mydata = res.data.result.data
-      console.log(this.mydata[key])
+      this.$store.state.myData = res.data.result.data
     })
+    
 }
 }
 </script>

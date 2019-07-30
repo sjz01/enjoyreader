@@ -10,8 +10,41 @@
       </router-link>
       <ul class="typeBook">
         <router-link to="/bookdetail">
-          <li @click="changeTitle('书城')"  v-for="(mydata,key) in mydata" :key="key">
-            <img :src=mydata.img >
+          <li @click="changeTitle('书城'),dj(key,1)"  v-for="(mydata,key) in mydata" :key="key">
+            <!-- <img :src="$store.state.myData[$store.state.content].img" > -->
+            <img :src=mydata.img alt="">
+          </li>
+        </router-link>
+      </ul>
+      <p class="e4e6f1"></p>
+    </div>
+    <div class="typeTop" >
+      <!-- <span>{{mydata.catalog}}</span> -->
+      <span>外国文学</span>
+      <router-link to="/more">
+        <span @click="changeTitle('书城') " style="float:right;margin-right:14px;color:black; font-size: 16px;font-weight:400;">更多></span>
+      </router-link>
+      <ul class="typeBook">
+        <router-link to="/bookdetail">
+          <li @click="changeTitle('书城'),dj(key,2)"  v-for="(mydata2,key) in mydata2" :key="key">
+            <!-- <img :src="$store.state.myData[$store.state.content].img" > -->
+            <img :src=mydata2.img alt="">
+          </li>
+        </router-link>
+      </ul>
+      <p class="e4e6f1"></p>
+    </div>
+    <div class="typeTop" >
+      <!-- <span>{{mydata.catalog}}</span> -->
+      <span>儿童文学</span>
+      <router-link to="/more">
+        <span @click="changeTitle('书城') " style="float:right;margin-right:14px;color:black; font-size: 16px;font-weight:400;">更多></span>
+      </router-link>
+      <ul class="typeBook">
+        <router-link to="/bookdetail">
+          <li @click="changeTitle('书城'),dj(key,3)"  v-for="(mydata3,key) in mydata3" :key="key">
+            <!-- <img :src="$store.state.myData[$store.state.content].img" > -->
+            <img :src=mydata3.img alt="">
           </li>
         </router-link>
       </ul>
@@ -26,30 +59,44 @@ export default {
   data(){
     return{
       result:[],
-      mydata:[]
+      mydata:[],
+      key:"",
+      result2:[],
+      mydata2:[],
+      result3:[],
+      mydata3:[],
     }
   },
 
   methods: {
     changeTitle(title) {
       this.$store.commit("changeMytitle", { title });
+    },
+    dj(key,id){
+      this.$store.state.id = id
+      this.$store.state.content = key
+      console.log(this.$store.state.content)
     }
   },
   created(){
     // 发起请求
-    // this.$axios.get("api/goodbook/catalog?key=b72dfbf2e7198d964adb73307fe02443")
-    // .then((res)=>{
-    //   console.log(res);
-    //   this.result = res.data.result;
-    //   // console.log(this.result)
-    //   // console.log(mysrc)
-    // })
-    // http://apis.juhe.cn/goodbook/query?key=b72dfbf2e7198d964adb73307fe02443&catalog_id=246&rn=10&rn=10
-    this.$axios.get("api/data/?id=64&key=AeHG+dFkG93+ip2L8Yo2QGzDMwTgsJeZ/px06Q&catalog_id=242&pn=10&rn=3") 
+    this.$axios.get("api/data/?id=64&key=XOjC/NViS4/+ipyL84oxT2zBOQTgsJeZ/px06Q&catalog_id=242&pn=10&rn=3")
     .then((res)=>{
-      console.log(res);
-       this.mydata = res.data.result.data;
-       console.log(this.mydata)
+      console.log(res.data.result.data);
+      this.mydata = res.data.result.data
+      this.$store.state.myData = res.data.result.data
+    })
+    this.$axios.get("api/data/?id=64&key=XOjC/NViS4/+ipyL84oxT2zBOQTgsJeZ/px06Q&catalog_id=247&pn=10&rn=3")
+    .then((res)=>{
+      console.log(res.data.result.data);
+      this.mydata2 = res.data.result.data
+      this.$store.state.myData2 = res.data.result.data
+    })
+    this.$axios.get("api/data/?id=64&key=XOjC/NViS4/+ipyL84oxT2zBOQTgsJeZ/px06Q&catalog_id=244&pn=10&rn=3")
+    .then((res)=>{
+      console.log(res.data.result.data);
+      this.mydata3 = res.data.result.data
+      this.$store.state.myData3 = res.data.result.data
     })
 }
 };
@@ -57,13 +104,18 @@ export default {
 <style scoped  lang="less">
 #type {
   margin-top: 20px;
+
 }
-.typeTop span {
+.typeTop{
+  padding-top: 10px;
+  span {
   margin-left: 22px;
   font-family: kaiti;
   font-weight:600;
   font-size: 20px;
 }
+}
+
 /* #typeTop span:nth-of-type(2) {
   font-size: 14px !important;
   float: right;

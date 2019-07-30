@@ -6,36 +6,22 @@
       <p>书籍详情</p>
     </nav>
     <div class="BookCover">
-      <img :src=img alt />
-      <p>书名：{{title}}</p>
-      <span>[中]南派三叔</span>
+      <img :src="content[$store.state.content].img" alt />
+      <p>书名： {{content[$store.state.content].title}}</p>
+      <span>分类：{{content[$store.state.content].catalog}}</span>
     </div>
     <div class="null"></div>
     <div class="tags">
       <p class="tou">短评</p>
       <div>
-        <span>盗墓+19</span>
-        <span>惊险刺激+10</span>
-        <span>盗墓铁三角+10</span>
-        <span>盗墓</span>
-        <span>小哥真帅</span>
-        <span>盗墓</span>
-        <span>惊险刺激</span>
-        <span>盗墓铁三角</span>
-        <span>惊险</span>
-        <span>小哥真帅,盗墓铁三角</span>
-        <span>刺激</span>
-        <span>盗墓</span>
-        <span>惊险刺激</span>
-        <span>盗墓铁三角</span>
-        <span>小哥真帅</span>
+        {{content[$store.state.content].tags}}
       </div>
     </div>
     <div class="null"></div>
     <div class="introduce">
-      <p class="tou">书籍简介{{mid}}</p>
+      <p class="tou">书籍简介</p>
       <div>
-        <p>{{sub2}}</p>
+        <p>{{content[$store.state.content].sub2}}</p>
       
       </div>
     </div>
@@ -46,18 +32,19 @@
          <div class="left">
              <p>出版社</p>
              <p>出版年</p>
-             <p>页数</p>
+             <p>阅读人数</p>
              <p>定价</p>
              <p>装帧</p>
              <p>购买链接</p>
          </div>
          <div class="left">
              <p>中国友谊出版公司</p>
-             <p>2010-1</p>
-             <p>274</p>
+             <p>{{content[$store.state.content].bytime}}</p>
+             <p>{{content[$store.state.content].reading}}</p>
              <p>32.80元</p>
              <p>平装</p>
-             <p>{{online}}</p>
+             <!-- <p>{{$store.state.myData[$store.state.content].online}}</p> -->
+             <p>www.taobao.com</p>
          </div>
 
      </div>
@@ -78,9 +65,7 @@ export default {
      return{
        data:"",
        img:"",
-       title:"",
-       sub2:"",
-       online:""
+       content:[]
      }
    },
    methods: {
@@ -109,14 +94,22 @@ export default {
   //     console.log(this.$route.params.title)
   //   })
   // },
+  
   computed:{
-    // gettitle(){
-    //     return this.$$route.params.title;
-    // }
     mid:function(){
-    
         return this.$route.params.id
+        this.img=$store.state.myData[$store.state.content].img
+        console.log(this.img)
       
+    }
+  },
+  created:function() {
+    if(this.$store.state.id == 1) {
+      this.content = this.$store.state.myData
+    } else if (this.$store.state.id == 2){
+      this.content = this.$store.state.myData2
+    } else {
+      this.content = this.$store.state.myData3
     }
   }
 

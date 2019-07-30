@@ -10,6 +10,12 @@ export default new Vuex.Store({
     myTitle: "静享阅读",
     name:"bole",
     myData:[],
+    content:null,
+    myData2:[],
+    myData3:[],
+    content2:null,
+    content3:null,
+    id:null
 
   },
   mutations: {
