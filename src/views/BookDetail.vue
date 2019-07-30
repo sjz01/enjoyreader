@@ -79,29 +79,8 @@ export default {
       });
     }
   },
-
-
-  //磊
-  // created(){
-  //   // 发起请求
-  //   this.$axios.get("/api/data/?id=64&key=AeHG+dFkG93+ip2L8Yo2QGzDMwTgsJeZ/px06Q&catalog_id=242&pn=10&rn=5")
-  //   .then((res)=>{
-  //     // console.log(res);
-  //     this.$router.params.title = res.data.result.data.title;
-  //     // this.img = res.data.result.data.img;
-  //     // this.sub2 = res.data.result.data.sub2;
-  //     // this.online = res.data.result.data[0].online;
-  //     console.log(this.$route.params.title)
-  //   })
-  // },
-  
   computed:{
-    mid:function(){
-        return this.$route.params.id
-        this.img=$store.state.myData[$store.state.content].img
-        console.log(this.img)
-      
-    }
+    
   },
   created:function() {
     if(this.$store.state.id == 1) {
@@ -112,7 +91,6 @@ export default {
       this.content = this.$store.state.myData3
     }
   }
-
 }
 </script>
 

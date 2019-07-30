@@ -64,7 +64,7 @@ export default new Router({
     },
     {
       path: "/resetpwd",
-      name:"questresetpwdion",
+      name:"resetpwd",
       component: () => import('@/components/ResetPwd')
     },
     {

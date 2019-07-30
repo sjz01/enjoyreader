@@ -3,16 +3,24 @@
     <!-- 一个分类的全部图书 -->
     <!-- 是组件，也是路由 -->
     <nav class="nav-bar">
-      <span @click="back"><img src="@/assets/返回1.png" style=" z-index:10;" alt=""></span>
+      <span @click="back">
+        <img src="@/assets/返回1.png" style=" z-index:10;" alt />
+      </span>
       <p>更多图书</p>
     </nav>
     <ul class="books">
       <!--循环-->
       <li>
-        <div class="item"  v-for="(mysrc,key) in mydata" :key="key" @click="dj(key)">
+        <div class="item" v-for="(mysrc,key) in mydata" :key="key" @click="dj(key)">
           <!-- <img class="book-pic" :src=mysrc.img alt="图片加载异常"/> -->
-      
-          <router-link :to="{path: '/bookdetail',params:{id:mydata.title}}" tag="img"  class="book-pic" :src=mysrc.img alt="图片加载异常">  </router-link>
+
+          <router-link
+            :to="{path: '/bookdetail',params:{id:mydata.title}}"
+            tag="img"
+            class="book-pic"
+            :src="mysrc.img"
+            alt="图片加载异常"
+          ></router-link>
           <div class="info">
             <h2 class="book-name">{{mysrc.title}}</h2>
             <p class="book-common">图书简介:{{mysrc.sub2}}</p>
@@ -27,33 +35,57 @@
 <script>
 export default {
   name: "More",
-  data(){
-    return{
-      mydata:[],
-      key:"",
-    }
+  data() {
+    return {
+      mydata: [],
+      key: ""
+    };
   },
   methods: {
     back() {
       this.$router.go(-1);
     },
-    dj(key){
-      console.log(key)
-      this.$store.state.content = key
-      console.log(this.$store.state.content)
+    dj(key) {
+      console.log(key);
+      this.$store.state.content = key;
+      console.log(this.$store.state.content);
     }
   },
-  created(){
+  created() {
     // 发起请求
-    this.$axios.get("api/data/?id=64&key=XOjC/NViS4/+ipyL84oxT2zBOQTgsJeZ/px06Q&catalog_id=242&pn=10&rn=20")
-    .then((res)=>{
-      console.log(res.data.result.data);
-      this.mydata = res.data.result.data
-      this.$store.state.myData = res.data.result.data
-    })
-    
-}
-}
+    if (this.$store.state.id == 1) {
+      this.$axios
+        .get(
+          "api/data/?id=64&key=UO7HqNE0Soz+hpOL8Yo2RGnCPQTgsJeZ/px06Q&catalog_id=242&pn=10&rn=20"
+        )
+        .then(res => {
+          console.log(res.data.result.data);
+          this.mydata = res.data.result.data;
+          this.$store.state.myData = res.data.result.data;
+        });
+    } else if (this.$store.state.id == 2) {
+      this.$axios
+        .get(
+          "api/data/?id=64&key=UO7HqNE0Soz+hpOL8Yo2RGnCPQTgsJeZ/px06Q&catalog_id=247&pn=10&rn=20"
+        )
+        .then(res => {
+          console.log(res.data.result.data);
+          this.mydata = res.data.result.data;
+          this.$store.state.myData = res.data.result.data;
+        });
+    } else {
+      this.$axios
+        .get(
+          "api/data/?id=64&key=UO7HqNE0Soz+hpOL8Yo2RGnCPQTgsJeZ/px06Q&catalog_id=244&pn=10&rn=20"
+        )
+        .then(res => {
+          console.log(res.data.result.data);
+          this.mydata = res.data.result.data;
+          this.$store.state.myData = res.data.result.data;
+        });
+    }
+  }
+};
 </script>
 
 <style  lang='less' scoped>
@@ -137,9 +169,9 @@ export default {
   font-weight: 400;
   font-family: kaiti;
 }
-.nav-bar img{
-    width: 20px;
-    height: 20px;
-    margin-top: 15px;
+.nav-bar img {
+  width: 20px;
+  height: 20px;
+  margin-top: 15px;
 }
 </style>

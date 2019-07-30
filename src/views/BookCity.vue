@@ -2,7 +2,7 @@
   <div id="book-city">
     <!-- 书城 -->
     <div id="search">
-      <mt-search></mt-search>
+      <mt-search v-model="search"></mt-search>
       <!-- <form action> -->
         <!-- <input type="search" placeholder="请输入书籍名称" /> -->
         <!-- <button type="submit"><img src="../assets/搜索.png" alt=""></button> -->
@@ -41,6 +41,8 @@ export default {
   name: "BookCity",
   data() {
     return {
+      // 搜索内容
+      search:'',
       swiperOption: {
         //   swiper的具体配置 信息
         //  effect: 'flip',
