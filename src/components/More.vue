@@ -43,11 +43,17 @@ export default {
   },
   created(){
     // 发起请求
-    this.$axios.get("/api/data/?id=64&key=AeHG+dFkG93+ip2L8Yo2QGzDMwTgsJeZ/px06Q&catalog_id=242&pn=10&rn=15")
+    this.$axios.get("api/goodbook/catalog?key=b72dfbf2e7198d964adb73307fe02443")
     .then((res)=>{
+<<<<<<< HEAD
       // console.log(res.data.result.data);
       this.mydata = res.data.result.data
       console.log(this.mydata[key])
+=======
+      console.log(res);
+      
+      // console.log(mysrc)
+>>>>>>> 2d14051c07ceba57d673149cacfc66fa3f02f69a
     })
 }
 }
