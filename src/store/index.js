@@ -7,7 +7,10 @@ Vue.use(Vuex)
 
 export default new Vuex.Store({
   state: {
-    myTitle: "静享阅读"
+    myTitle: "静享阅读",
+    name:"bole",
+    myData:[],
+
   },
   mutations: {
     changeMytitle:(state,payload)=>{

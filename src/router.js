@@ -22,7 +22,7 @@ export default new Router({
       component: () => import('@/views/BookShelf'),
       children: [
         {
-          path: "bookdetail",
+          path: "bookdetail/:id",
           component: () => import('@/views/BookDetail')
         },
         {
