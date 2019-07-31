@@ -8,27 +8,29 @@
       </span>
       <p>更多图书</p>
     </nav>
-    <ul class="books">
-      <!--循环-->
-      <li>
-        <div class="item" v-for="(mysrc,key) in mydata" :key="key" @click="dj(key)">
-          <!-- <img class="book-pic" :src=mysrc.img alt="图片加载异常"/> -->
+    <mt-loadmore :top-method="loadTop" :bottom-method="loadBottom"  ref="loadmore">
+      <ul class="books">
+        <!--循环-->
+        <li>
+          <div class="item" v-for="(mysrc,key) in mydata" :key="key" @click="dj(key)">
+            <!-- <img class="book-pic" :src=mysrc.img alt="图片加载异常"/> -->
 
-          <router-link
-            :to="{path: '/bookdetail',params:{id:mydata.title}}"
-            tag="img"
-            class="book-pic"
-            :src="mysrc.img"
-            alt="图片加载异常"
-          ></router-link>
-          <div class="info">
-            <h2 class="book-name">{{mysrc.title}}</h2>
-            <p class="book-common">图书简介:{{mysrc.sub2}}</p>
-            <p class="book-classify">分类:{{mysrc.catalog}}</p>
+            <router-link
+              :to="{path: '/bookdetail',params:{id:mydata.title}}"
+              tag="img"
+              class="book-pic"
+              :src="mysrc.img"
+              alt="图片加载异常"
+            ></router-link>
+            <div class="info">
+              <h2 class="book-name">{{mysrc.title}}</h2>
+              <p class="book-common">图书简介:{{mysrc.sub2}}</p>
+              <p class="book-classify">分类:{{mysrc.catalog}}</p>
+            </div>
           </div>
-        </div>
-      </li>
-    </ul>
+        </li>
+      </ul>
+    </mt-loadmore>
   </div>
 </template>
 
@@ -49,6 +51,13 @@ export default {
       console.log(key);
       this.$store.state.content = key;
       console.log(this.$store.state.content);
+    },
+    loadTop() {
+      this.$refs.loadmore.onTopLoaded();
+    },
+    loadBottom() {
+      this.allLoaded = true; // 若数据已全部获取完毕
+      this.$refs.loadmore.onBottomLoaded();
     }
   },
   created() {
