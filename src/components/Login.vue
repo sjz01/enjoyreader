@@ -19,15 +19,9 @@
       </router-link>
     </div>
     <div class="btn">
-<<<<<<< HEAD
-      <router-link to="/mine">
-        <button @click="islogin">登录</button>
-      </router-link>
-=======
       <!-- <router-link to="/mine"> -->
       <button @click="login">登录</button>
       <!-- </router-link> -->
->>>>>>> 5dfa120481ce7b14394f8113ae0cb919198b54e0
     </div>
   </div>
 </template>
@@ -46,7 +40,6 @@ export default {
     back() {
       this.$router.go(-1);
     },
-<<<<<<< HEAD
     islogin:function(){
        http.login(this,this.username,this.password).then((res)=>{
          console.log(res)
@@ -54,20 +47,6 @@ export default {
          alert(res.data.msg)
        })
      }
-=======
-    login() {
-      if (this.username === "" || this.password === "") {
-        alert("请输入用户名或密码");
-      } else if (
-        this.username != localStorage.username &&
-        this.password != localStorage.password
-      ) {
-        alert("用户名或密码错误");
-      } else {
-        this.$router.push("/mine");
-      }
-    }
->>>>>>> 5dfa120481ce7b14394f8113ae0cb919198b54e0
   }
 };
 </script>
