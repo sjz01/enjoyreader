@@ -1,13 +1,14 @@
 <template>
   <div id="book-city">
     <!-- 书城 -->
-    <div id="search">
+    <!-- <div id="search">
       <mt-search v-model="search"></mt-search>
+    </div> -->
       <!-- <form action> -->
         <!-- <input type="search" placeholder="请输入书籍名称" /> -->
         <!-- <button type="submit"><img src="../assets/搜索.png" alt=""></button> -->
       <!-- </form> -->
-    </div>
+  
     <swiper :options="swiperOption" ref="mySwiper">
       <!-- slides -->
       <swiper-slide>

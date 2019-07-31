@@ -12,7 +12,6 @@
     <div class="top">
       <form action>
         <input type="text" v-model="username" placeholder="用户名" name="u" />
-        
       </form>
     </div>
     <div class="btn">
@@ -27,7 +26,7 @@
 </template>
 
 <script>
-import http from '../axios/myApi'
+import http from "../axios/myApi";
 export default {
   name: "Forget",
   data() {
@@ -40,23 +39,25 @@ export default {
     back() {
       this.$router.go(-1);
     },
-    submit(){
-     if(this.data.username == ""){
-         alert("请输入用户名");
-     }
-    },
-    forget:function(){
-       http.find(this,this.username).then((res)=>{
-        
-        if(res.data.result){
-         localStorage.username = this.username
-         location.href = 'http://localhost:8080/Question'
-        } else{
-          alert(res.data.msg)
-        }
-         
-       })
-     }
+    // submit(){
+    //  if(this.data.username == ""){
+    //      alert("请输入用户名");
+    //  }
+    // },
+    forget: function() {
+      if (this.username != "") {
+        http.find(this, this.username).then(res => {
+          if (res.data.result) {
+            localStorage.username = this.username;
+            location.href = "http://localhost:8080/Question";
+          } else {
+            alert(res.data.msg);
+          }
+        });
+      } else{
+        alert("请输入用户名")
+      }
+    }
   }
 };
 </script>

@@ -5,25 +5,30 @@
     <div class="touxiang">
       <img src="@/assets/mineLogo.jpg" alt />
     </div>
-    <p class="Login">
+    <p v-if="!showname" class="Login">
       <router-link to="/login">
-        <span>登录</span>
+        <span @click="login">登录</span>
       </router-link>/
       <router-link to="/register">
         <span>注册</span>
       </router-link>
     </p>
-
-    <!-- <button>登录/注册</button> -->
-
+    <p class="Login">{{username}}</p>
     <div style="clear:both"></div>
     <br />
+
     <div class="about">
-      <input type="text" name id placeholder="个性签名" />
+      <!-- <button>退出登录</button> -->
       <br />
+      <div id="fukuan">
+        <img src="@/assets/付款码.png" alt v-if="show" />
+      </div>
       <button @click="alert()">关于我们</button>
-      <!-- <div class="button">关于我们</div> -->
-      <!-- <p class="button">关于我们</p> -->
+      <button @click="showCont">友情赞助</button>
+
+      <router-link to="/login">
+        <button>退出登录</button>
+      </router-link>
     </div>
     <Tabbar />
   </div>
@@ -34,6 +39,13 @@ import Tabbar from "@/components/Tabbar";
 import { MessageBox } from "mint-ui";
 export default {
   name: "Mine",
+  data() {
+    return {
+      showname: false,
+      username: "",
+      show: false
+    };
+  },
   components: {
     Tabbar
   },
@@ -44,6 +56,15 @@ export default {
         message: "团队：Supreme <br>成员:王磊,张倩瑶,蒙伯乐"
         //  showCancelButton: true
       });
+    },
+    showCont: function() {
+      this.show = !this.show;
+    }
+  },
+  created() {
+    if (localStorage.username) {
+      this.username = localStorage.username;
+      this.showname = true;
     }
   }
 };
@@ -84,8 +105,7 @@ a {
   // color: aqua;
   line-height: 170px;
   color: #8a8a8a;
-   font-family: kaiti;
-  
+  font-family: kaiti;
 }
 .about {
   width: 100%;
@@ -107,7 +127,20 @@ a {
     outline: none;
     border: 1px solid deepskyblue;
   }
-
+  button:focus {
+    outline: none;
+    border: 1px solid deepskyblue;
+    }
+    #fukuan {
+      margin: 0 auto;
+      position: absolute;
+      left: 30%;
+      img {
+        width: 150px;
+        height: 150px;
+      }
+    }
+  
   button {
     margin-top: 40px;
     width: 90%;
