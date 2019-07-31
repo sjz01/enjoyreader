@@ -83,7 +83,6 @@ export default {
   },
   created(){
     // 发起请求
-<<<<<<< HEAD
     // this.$axios.get("api/data/?id=64&key=UO7HqNE0Soz+hpOL8Yo2RGnCPQTgsJeZ/px06Q&catalog_id=242&pn=10&rn=3")
     // .then((res)=>{
     //   console.log(res.data.result.data);
@@ -106,9 +105,6 @@ export default {
 
     //王磊接口
      this.$axios.get("api/data/?id=64&key=XOjC/NViS4/+ipyL84oxT2zBOQTgsJeZ/px06Q&catalog_id=242&pn=10&rn=3")
-=======
-    this.$axios.get("api/data/?id=64&key=XOjC/NViS4/+ipyL84oxT2zBOQTgsJeZ/px06Q&catalog_id=242&pn=10&rn=3")
->>>>>>> dac19146b069fa721f63cebe76a014391cd7ad4f
     .then((res)=>{
       console.log(res);
       this.mydata = res.data.result.data
