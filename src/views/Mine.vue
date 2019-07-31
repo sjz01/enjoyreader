@@ -7,7 +7,7 @@
     </div>
     <p v-if="!showname" class="Login">
       <router-link to="/login">
-        <span @click="login">登录</span>
+        <span>登录</span>
       </router-link>/
       <router-link to="/register">
         <span>注册</span>
