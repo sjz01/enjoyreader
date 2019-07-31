@@ -19,9 +19,12 @@
     <div style="clear:both"></div>
     <br />
     <div class="about">
-      <input type="text" name id placeholder="个性签名" />
-      <br />
       <button @click="alert()">关于我们</button>
+      <br />
+      <button @click="showCont">友情赞助</button>
+      <div>
+        <img src="@/assets/付款码.jpg" alt="" v-if="show">
+      </div>
       <!-- <div class="button">关于我们</div> -->
       <!-- <p class="button">关于我们</p> -->
     </div>
@@ -34,6 +37,11 @@ import Tabbar from "@/components/Tabbar";
 import { MessageBox } from "mint-ui";
 export default {
   name: "Mine",
+  data() {
+    return {
+      show: false
+    };
+  },
   components: {
     Tabbar
   },
@@ -44,6 +52,9 @@ export default {
         message: "团队：Supreme <br>成员:王磊,张倩瑶,蒙伯乐"
         //  showCancelButton: true
       });
+    },
+    showCont: function() {
+      this.show = !this.show;
     }
   }
 };
@@ -84,29 +95,13 @@ a {
   // color: aqua;
   line-height: 170px;
   color: #8a8a8a;
-   font-family: kaiti;
-  
+  font-family: kaiti;
 }
 .about {
   width: 100%;
   text-align: center;
   color: #8a8a8a;
   // background-color: blue;
-
-  input {
-    margin-top: 20px;
-    width: 90%;
-    height: 60px;
-    border-radius: 20px;
-    border: 1px solid #8a8a8a;
-    text-align: center;
-    font-family: kaiti;
-    font-size: 20px;
-  }
-  input:focus {
-    outline: none;
-    border: 1px solid deepskyblue;
-  }
 
   button {
     margin-top: 40px;
@@ -119,6 +114,20 @@ a {
     border: 1px solid #8a8a8a;
     font-family: kaiti;
     font-size: 20px;
+  }
+  button:focus {
+    outline: none;
+    border: 1px solid deepskyblue;
+  }
+  div {
+    margin-top: 8px;
+    overflow: hidden;
+    img {
+      margin-top: 10px auto;
+      width: 150px;
+      height: 150px;
+      overflow: hidden;
+    }
   }
 }
 </style>
