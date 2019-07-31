@@ -10,7 +10,7 @@
       <p>回答问题</p>
     </div>
     <div class="top">
-      <input type="text" v-model="username" placeholder="用户名" />
+      <input type="text" style="margin-left:12%;"  v-model="username" placeholder="用户名" />
       <p>{{question}}</p>
       <form id="question">
         <input type="radio" name="color" value="红" checked v-model="answer" />
@@ -20,7 +20,7 @@
         <input type="radio" name="color" value="蓝" v-model="answer" />
         蓝
       </form>
-      <input type="password" v-model="password" placeholder="新密码" name="p" />
+      <input type="password" style="margin-left:12%;"  v-model="password" placeholder="新密码" name="p" />
     </div>
     <div class="btn">
       <!-- 此处点击判断username是否为空，为空提示 请输入
@@ -132,7 +132,7 @@ a {
 }
 .top {
   margin: 100px 0 40px 0;
-
+  
   p {
     text-align: center;
     font-size: 26px;
@@ -165,9 +165,11 @@ input {
   background-color: transparent;
   border: 2px solid #ffffff;
   border-radius: 20px;
-  margin-top: 10px;
+  margin:10px auto;
   text-shadow: 1px;
   color: black;
+  
+
 }
 input:focus {
   outline: none;

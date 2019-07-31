@@ -10,6 +10,10 @@ Vue.prototype.$axios = axios
 //配置vueResource
 Vue.use(vueResource);
 
+import { Loadmore } from 'mint-ui';
+
+Vue.component(Loadmore.name, Loadmore);
+
 // 引入全部Mint组件
 import Mint from 'mint-ui';
 Vue.use(Mint);

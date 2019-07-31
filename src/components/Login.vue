@@ -14,8 +14,11 @@
         <input type="text" v-model="username" placeholder="用户名" name="u" />
         <input type="password" v-model="password" placeholder="密码" name="p" />
       </form>
+      <router-link to="/register">
+      <span class="qu">前去注册</span>
+      </router-link>
       <router-link to="/forget">
-        <span>忘记密码？</span>
+      <span class="lai">忘记密码？</span>
       </router-link>
     </div>
     <div class="btn">
@@ -34,6 +37,7 @@ export default {
     return {
       username: "",
       password: "",
+      showname:false
     };
   },
   methods: {
@@ -43,10 +47,14 @@ export default {
     islogin:function(){
        http.login(this,this.username,this.password).then((res)=>{
         if(res.data.result){
+           localStorage.username = this.username
+          this.showname = true;
+         console.log(this.username);
          location.href = 'http://localhost:8080/mine'
+         
         } else{
           alert(res.data.msg)
-          
+          // this.showname = false;
         }
          
        })
@@ -111,8 +119,13 @@ a {
 .top {
   margin: 70px auto;
   position: relative;
+  .qu {
+    position: absolute;
+    margin-top: 10px;
+    margin-left: 12%;
+  }
 
-  span {
+  .lai {
     position: absolute;
     margin-top: 10px;
     margin-left: 70%;
