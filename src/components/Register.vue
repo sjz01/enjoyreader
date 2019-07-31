@@ -14,13 +14,13 @@
         <input type="text" v-model="username" placeholder="用户名" name="u" />
         <input type="password" v-model="password" placeholder="密码" name="p" />
         <p>请回答下面问题</p>
-        <p>你最喜欢的颜色是？</p>
+        <p>{{question}}</p>
         <form id="question">
-          <input type="radio" name="color" value="红" checked />红
+          <input type="radio" name="color" value="红" checked  v-model="answer"/>红
           
-          <input type="radio" name="color" value="绿" />绿
+          <input type="radio" name="color" value="绿" v-model="answer" />绿
         
-          <input type="radio" name="color" value="蓝" />蓝
+          <input type="radio" name="color" value="蓝"  v-model="answer"/>蓝
           
         </form>
       </form>
@@ -34,12 +34,16 @@
 </template>
 
 <script>
+import http from '../axios/myApi'
 export default {
   name: "Register",
   data(){
     return{
        username: '',
        password: '',
+       question:'你最喜欢的颜色是？',
+       answer:'',
+       
     }
   },
   methods: {
@@ -47,11 +51,16 @@ export default {
       this.$router.go(-1);
     },
     register(){
-      if (this.username === '' || this.password === '') {
-        alert('请输入用户名或密码')
-      } else {
-        this.$router.push("/mine");
-      }
+      console.log(this.answer)
+      http.register(this,this.username,this.password,this.question,this.answer).then((res)=>{
+        if(res.data.result){
+          localStorage.question = this.question
+          localStorage.answer = this.answer
+          location.href = 'http://localhost:8080/Login'
+        } else{
+          alert(res.data.msg)
+        }
+      })
     }
   }
 };
