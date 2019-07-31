@@ -3,9 +3,12 @@ import App from './App.vue'
 import router from './router'
 import store from '@/store'
 import axios from 'axios'
-
+import vueResource from 'vue-resource'
 //配置axios到全局
 Vue.prototype.$axios = axios
+
+//配置vueResource
+Vue.use(vueResource);
 
 // 引入全部Mint组件
 import Mint from 'mint-ui';

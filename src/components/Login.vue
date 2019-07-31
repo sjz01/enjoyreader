@@ -20,13 +20,14 @@
     </div>
     <div class="btn">
       <router-link to="/mine">
-        <button>登录</button>
+        <button @click="islogin">登录</button>
       </router-link>
     </div>
   </div>
 </template>
 
 <script>
+import http from "../axios/myApi"
 export default {
   name: "Login",
   data() {
@@ -35,11 +36,17 @@ export default {
       password: ""
     };
   },
-  created() {},
   methods: {
     back() {
       this.$router.go(-1);
-    }
+    },
+    islogin:function(){
+       http.login(this,this.username,this.password).then((res)=>{
+         console.log(res)
+         console.log(res.data)
+         alert(res.data.msg)
+       })
+     }
   }
 };
 </script>
