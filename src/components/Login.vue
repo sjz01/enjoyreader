@@ -19,9 +19,9 @@
       </router-link>
     </div>
     <div class="btn">
-      <router-link to="/mine">
-        <button>登录</button>
-      </router-link>
+      <!-- <router-link to="/mine"> -->
+      <button @click="login">登录</button>
+      <!-- </router-link> -->
     </div>
   </div>
 </template>
@@ -39,6 +39,18 @@ export default {
   methods: {
     back() {
       this.$router.go(-1);
+    },
+    login() {
+      if (this.username === "" || this.password === "") {
+        alert("请输入用户名或密码");
+      } else if (
+        this.username != localStorage.username &&
+        this.password != localStorage.password
+      ) {
+        alert("用户名或密码错误");
+      } else {
+        this.$router.push("/mine");
+      }
     }
   }
 };
@@ -122,14 +134,14 @@ input {
 }
 input:focus {
   outline: none;
-   border: 2px solid #ffffff;
+  border: 2px solid #ffffff;
 }
 ::-webkit-input-placeholder {
   /* WebKit browsers */
   color: #ffffff;
   font-size: 14px;
   text-indent: 0.4rem;
-   font-family: kaiti;
+  font-family: kaiti;
   font-size: 18px;
 }
 .btn {
