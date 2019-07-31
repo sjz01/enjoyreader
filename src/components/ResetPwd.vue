@@ -11,18 +11,20 @@
     </div>
     <div class="top">
       <form action>
+        <input type="text" v-model="username" placeholder="用户名" />
         <input type="password" v-model="password" placeholder="新密码" name="p" />
       </form>
     </div>
     <div class="btn">
-      <router-link to="/login">
-        <button>提交</button>
-      </router-link>
+      <!-- <router-link to="/login"> -->
+      <button @click="submit">提交</button>
+      <!-- </router-link> -->
     </div>
   </div>
 </template>
 
 <script>
+import http from '../axios/myApi'
 export default {
   name: "Login",
   data() {
@@ -35,6 +37,15 @@ export default {
   methods: {
     back() {
       this.$router.go(-1);
+    },
+    submit() {
+      http.updatePassword(this, this.username, this.password).then(res => {
+        if (res.data.result) {
+          location.href = "http://localhost:8080/login";
+        } else {
+          alert(res.data.msg);
+        }
+      });
     }
   }
 };
@@ -118,14 +129,14 @@ input {
 }
 input:focus {
   outline: none;
-   border: 2px solid #ffffff;
+  border: 2px solid #ffffff;
 }
 ::-webkit-input-placeholder {
   /* WebKit browsers */
   color: #ffffff;
   font-size: 14px;
   text-indent: 0.4rem;
-   font-family: kaiti;
+  font-family: kaiti;
   font-size: 18px;
 }
 .btn {

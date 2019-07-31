@@ -10,39 +10,68 @@
       <p>回答问题</p>
     </div>
     <div class="top">
-      <p>你最喜欢的颜色是？</p>
-        <form id="question">
-          <input type="radio" name="color" value="红" checked />红
-          
-          <input type="radio" name="color" value="绿" />绿
-        
-          <input type="radio" name="color" value="蓝" />蓝
-          
-        </form>
+      <input type="text" v-model="username" placeholder="用户名" />
+      <p>{{question}}</p>
+      <form id="question">
+        <input type="radio" name="color" value="红" checked v-model="answer" />
+        红
+        <input type="radio" name="color" value="绿" v-model="answer" />
+        绿
+        <input type="radio" name="color" value="蓝" v-model="answer" />
+        蓝
+      </form>
+      <input type="password" v-model="password" placeholder="新密码" name="p" />
     </div>
     <div class="btn">
       <!-- 此处点击判断username是否为空，为空提示 请输入
       输入如果与曾输入不符提示 输入错误
       输入无误 跳转到回答问题-->
-      <router-link to="/resetpwd">
-      <button>提交</button>
-      </router-link>
+      <!-- <router-link to="/resetpwd"> -->
+      <button @click="join">提交</button>
+      <!-- </router-link> -->
     </div>
   </div>
 </template>
 
 <script>
+import http from "../axios/myApi";
 export default {
   name: "Forget",
   data() {
     return {
-      username: ""
+      username: "",
+      password: "",
+      ruestion: "",
+      answer: "",
+       question:'你最喜欢的颜色是？',
     };
   },
   created() {},
   methods: {
     back() {
       this.$router.go(-1);
+    },
+    join: function() {
+      http.correct(this, this.username).then(res => {
+        if (res.data.result) {
+          if (localStorage.answer == this.answer ) {
+              http.updatePassword(this, this.username, this.password,this.question,this.answer)
+                .then(res => {
+                  console.log(res);
+                  if (res.data.result) {
+                    location.href = "http://localhost:8080/login";
+                  } else {
+                    alert(res.data.msg);
+                  }
+                });
+            // location.href = "http://localhost:8080/resetpwd";
+          } else {
+            alert("答案不正确或用户名不正确");
+          }
+        } else {
+          alert(res.data.msg);
+        }
+      });
     }
   }
 };
@@ -108,27 +137,25 @@ a {
     text-align: center;
     font-size: 26px;
     font-family: kaiti;
-
-    
   }
 }
- #question input{
-    width: 20px;
-    height: 20px;
-    color: #ffffff;
-    text-align: center;
-    padding-bottom: 10px;
-    vertical-align:middle; 
-    margin-top:-2px; 
-    margin-bottom:1px;
-  }
-  #question{
-    margin-top: 20px;
-    color: #000000;
-    // text-align: center;
-    font-size: 26px;
-    font-family: kaiti;
-  }
+#question input {
+  width: 20px;
+  height: 20px;
+  color: #ffffff;
+  text-align: center;
+  padding-bottom: 10px;
+  vertical-align: middle;
+  margin-top: -2px;
+  margin-bottom: 1px;
+}
+#question {
+  margin-top: 20px;
+  color: #000000;
+  // text-align: center;
+  font-size: 26px;
+  font-family: kaiti;
+}
 form {
   text-align: center;
 }

@@ -64,6 +64,16 @@ function correct(vue,username) {
     return vue.$axios.post(CORRCET_PATH,param)
 }
 
+function updatePassword(vue,username,password,question,answer) {
+    var param = new URLSearchParams();
+    param.append("userName", username);
+    param.append("password", password);
+    param.append("question", question);
+    param.append("answer", answer);
+    param.append("favorite", 1);
+    return vue.$axios.post(PASSWORD_PATH,param)
+}
+
 //暴露方法
 function getBookData(vue,data) {
     return myGet(vue,data);
@@ -71,6 +81,6 @@ function getBookData(vue,data) {
 
 
 export default {
-    getBookData,register,login,find,correct
+    getBookData,register,login,find,correct,updatePassword
 }
 

@@ -19,8 +19,8 @@
       </router-link>
     </div>
     <div class="btn">
-      <!-- <router-link to="/mine"> -->
-      <button @click="login">登录</button>
+      <!-- <router-link :to='luyou'> -->
+      <button @click="islogin">登录</button>
       <!-- </router-link> -->
     </div>
   </div>
@@ -33,7 +33,7 @@ export default {
   data() {
     return {
       username: "",
-      password: ""
+      password: "",
     };
   },
   methods: {
@@ -42,9 +42,13 @@ export default {
     },
     islogin:function(){
        http.login(this,this.username,this.password).then((res)=>{
-         console.log(res)
-         console.log(res.data)
-         alert(res.data.msg)
+        if(res.data.result){
+         location.href = 'http://localhost:8080/mine'
+        } else{
+          alert(res.data.msg)
+          
+        }
+         
        })
      }
   }

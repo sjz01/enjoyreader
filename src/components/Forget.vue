@@ -12,20 +12,22 @@
     <div class="top">
       <form action>
         <input type="text" v-model="username" placeholder="用户名" name="u" />
+        
       </form>
     </div>
     <div class="btn">
       <!-- 此处点击判断username是否为空，为空提示 请输入
       输入如果与曾输入不符提示 输入错误
       输入无误 跳转到回答问题-->
-      <router-link to="/question">
-      <button>提交</button>
-      </router-link>
+      <!-- <router-link to="/question"> -->
+      <button @click="forget">提交</button>
+      <!-- </router-link> -->
     </div>
   </div>
 </template>
 
 <script>
+import http from '../axios/myApi'
 export default {
   name: "Forget",
   data() {
@@ -42,7 +44,19 @@ export default {
      if(this.data.username == ""){
          alert("请输入用户名");
      }
-    }
+    },
+    forget:function(){
+       http.find(this,this.username).then((res)=>{
+        
+        if(res.data.result){
+         localStorage.username = this.username
+         location.href = 'http://localhost:8080/Question'
+        } else{
+          alert(res.data.msg)
+        }
+         
+       })
+     }
   }
 };
 </script>
