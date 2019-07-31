@@ -3,34 +3,17 @@
     <!-- 书架 -->
     <div class="bookone">
       <ul class="books">
-        <li>
-          <img src="http://img0.imgtn.bdimg.com/it/u=3963626460,748883260&fm=26&gp=0.jpg" alt />
-          <p>神雕侠侣</p>
-        </li>
-        <li>
-          <img src="http://img0.imgtn.bdimg.com/it/u=3963626460,748883260&fm=26&gp=0.jpg" alt />
-          <p>神雕侠侣</p>
-        </li>
-        <li>
-          <img src="http://img0.imgtn.bdimg.com/it/u=3963626460,748883260&fm=26&gp=0.jpg" alt />
-          <p>神雕侠侣</p>
-        </li>
-        <li>
-          <img src="http://img0.imgtn.bdimg.com/it/u=3963626460,748883260&fm=26&gp=0.jpg" alt />
-          <p>神雕侠侣</p>
-        </li>
-        <li>
-          <img src="http://img0.imgtn.bdimg.com/it/u=3963626460,748883260&fm=26&gp=0.jpg" alt />
-          <p>神雕侠侣</p>
-        </li>
-        <li>
-          <img src="http://img0.imgtn.bdimg.com/it/u=3963626460,748883260&fm=26&gp=0.jpg" alt />
-          <p>神雕侠侣</p>
-        </li>
-        <router-link to="/bookcity" >
         <li class="add" @click="changeTitle('书城')">
           <img src="@/assets/添加.png" alt />
         </li>
+        <!-- <template v-for="(title,key) in this.$store.state.title" :key="key"></template> -->
+        <li v-for="(src,key) in $store.state.img" :key="key" >
+          <img :src="src" alt />
+          <p>{{$store.state.title[key]}}</p>
+        </li>
+       
+        <router-link to="/bookcity" >
+       
         </router-link>
       </ul>
     </div>
@@ -45,10 +28,22 @@ export default {
    components: {
     Tabbar
   },
+  data(){ 
+     return{
+       img:"",
+     }
+   },
   methods:{
      changeTitle(title) {
       this.$store.commit("changeMytitle", { title });
-    }
+    },
+    ob(){
+      console.log(this.$store.state.img)
+    },
+     created:function() {
+    this.img = this.$store.state.img
+  }
+    
   }
 };
 </script>
@@ -95,6 +90,7 @@ li p {
 .add{
   height: 120px;
   width: 80px;
+  position: relative;
 }
 .add img{
     width: 60px;

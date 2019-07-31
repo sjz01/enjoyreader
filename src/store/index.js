@@ -15,7 +15,9 @@ export default new Vuex.Store({
     content:null,
     content2:null,
     content3:null,
-    id:null
+    id:null,
+    title:[],
+    img:[],
   },
   mutations: {
     changeMytitle:(state,payload)=>{

@@ -54,6 +54,8 @@
 </template>
 
 <script>
+import { connect } from 'net';
+import http from "../axios/myApi"
 export default {
   name: "Type",
   data(){
@@ -65,6 +67,7 @@ export default {
       mydata2:[],
       result3:[],
       mydata3:[],
+      obj:{},
     }
   },
 
@@ -80,21 +83,42 @@ export default {
   },
   created(){
     // 发起请求
-    this.$axios.get("api/data/?id=64&key=UO7HqNE0Soz+hpOL8Yo2RGnCPQTgsJeZ/px06Q&catalog_id=242&pn=10&rn=3")
+    // this.$axios.get("api/data/?id=64&key=UO7HqNE0Soz+hpOL8Yo2RGnCPQTgsJeZ/px06Q&catalog_id=242&pn=10&rn=3")
+    // .then((res)=>{
+    //   console.log(res.data.result.data);
+    //   this.mydata = res.data.result.data
+    //   this.$store.state.myData = res.data.result.data
+    // })
+
+    // this.$axios.get("api/data/?id=64&key=UO7HqNE0Soz+hpOL8Yo2RGnCPQTgsJeZ/px06Q&catalog_id=247&pn=10&rn=3")
+    // .then((res)=>{
+    //   console.log(res.data.result.data);
+    //   this.mydata2 = res.data.result.data
+    //   this.$store.state.myData2 = res.data.result.data
+    // })
+    // this.$axios.get("api/data/?id=64&key=UO7HqNE0Soz+hpOL8Yo2RGnCPQTgsJeZ/px06Q&catalog_id=244&pn=10&rn=3")
+    // .then((res)=>{
+    //   console.log(res.data.result.data);
+    //   this.mydata3 = res.data.result.data
+    //   this.$store.state.myData3 = res.data.result.data
+    // })
+
+    //王磊接口
+     this.$axios.get("api/data/?id=64&key=XOjC/NViS4/+ipyL84oxT2zBOQTgsJeZ/px06Q&catalog_id=242&pn=10&rn=3")
     .then((res)=>{
-      console.log(res.data.result.data);
+      console.log(res);
       this.mydata = res.data.result.data
       this.$store.state.myData = res.data.result.data
     })
-    this.$axios.get("api/data/?id=64&key=UO7HqNE0Soz+hpOL8Yo2RGnCPQTgsJeZ/px06Q&catalog_id=247&pn=10&rn=3")
+    this.$axios.get("api/data/?id=64&key=XOjC/NViS4/+ipyL84oxT2zBOQTgsJeZ/px06Q&catalog_id=247&pn=10&rn=3")
     .then((res)=>{
-      console.log(res.data.result.data);
+      console.log(res);
       this.mydata2 = res.data.result.data
       this.$store.state.myData2 = res.data.result.data
     })
-    this.$axios.get("api/data/?id=64&key=UO7HqNE0Soz+hpOL8Yo2RGnCPQTgsJeZ/px06Q&catalog_id=244&pn=10&rn=3")
+    this.$axios.get("api/data/?id=64&key=XOjC/NViS4/+ipyL84oxT2zBOQTgsJeZ/px06Q&catalog_id=244&pn=10&rn=3")
     .then((res)=>{
-      console.log(res.data.result.data);
+      console.log(res);
       this.mydata3 = res.data.result.data
       this.$store.state.myData3 = res.data.result.data
     })

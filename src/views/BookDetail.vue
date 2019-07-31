@@ -65,7 +65,10 @@ export default {
      return{
        data:"",
        img:"",
-       content:[]
+       content:[],
+       myData:[],
+       
+       
      }
    },
    methods: {
@@ -73,6 +76,42 @@ export default {
       this.$router.go(-1);
     }, 
     join(){
+      
+      console.log(this.content[ this.$store.state.content].img)
+      console.log(this.content[this.$store.state.content].title)
+
+      this.$store.state.img.push(this.content[ this.$store.state.content].img)
+      this.$store.state.title.push(this.content[ this.$store.state.content].title)
+  
+  //数组去重
+      var arr = [];
+      var a = this.$store.state.img;
+      var bole = function(){
+        a.forEach(function(item){
+          if(arr.indexOf(item)==-1){
+            arr.push(item)
+          }
+        })
+        return arr;
+      }
+      bole();
+      this.$store.state.img = arr
+       console.log( this.$store.state.img )
+// *******************************
+      var arr2 = [];
+      var b = this.$store.state.title;
+      var bole2 = function(){
+        b.forEach(function(item){
+          if(arr2.indexOf(item)==-1){
+            arr2.push(item)
+          }
+        })
+        return arr2;
+      }
+      bole2();
+      this.$store.state.title = arr2
+       console.log( this.$store.state.title )
+
        Toast({
         message: '操作成功',
         iconClass: 'icon myIcon'

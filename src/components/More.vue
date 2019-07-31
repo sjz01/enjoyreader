@@ -38,7 +38,8 @@ export default {
   data() {
     return {
       mydata: [],
-      key: ""
+      key: "",
+      img:""
     };
   },
   methods: {
@@ -56,7 +57,7 @@ export default {
     if (this.$store.state.id == 1) {
       this.$axios
         .get(
-          "api/data/?id=64&key=UO7HqNE0Soz+hpOL8Yo2RGnCPQTgsJeZ/px06Q&catalog_id=242&pn=10&rn=20"
+          "api/data/?id=64&key=XOjC/NViS4/+ipyL84oxT2zBOQTgsJeZ/px06Q&catalog_id=242&pn=10&rn=20"
         )
         .then(res => {
           console.log(res.data.result.data);
@@ -66,7 +67,7 @@ export default {
     } else if (this.$store.state.id == 2) {
       this.$axios
         .get(
-          "api/data/?id=64&key=UO7HqNE0Soz+hpOL8Yo2RGnCPQTgsJeZ/px06Q&catalog_id=247&pn=10&rn=20"
+          "api/data/?id=64&key=XOjC/NViS4/+ipyL84oxT2zBOQTgsJeZ/px06Q&catalog_id=247&pn=10&rn=20"
         )
         .then(res => {
           console.log(res.data.result.data);
@@ -76,7 +77,7 @@ export default {
     } else {
       this.$axios
         .get(
-          "api/data/?id=64&key=UO7HqNE0Soz+hpOL8Yo2RGnCPQTgsJeZ/px06Q&catalog_id=244&pn=10&rn=20"
+          "api/data/?id=64&key=XOjC/NViS4/+ipyL84oxT2zBOQTgsJeZ/px06Q&catalog_id=244&pn=10&rn=20"
         )
         .then(res => {
           console.log(res.data.result.data);
