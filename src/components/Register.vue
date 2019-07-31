@@ -11,8 +11,8 @@
     </div>
     <div class="top">
       <form action>
-        <input type="text" placeholder="用户名" name="u" />
-        <input type="password" placeholder="密码" name="p" />
+        <input type="text" v-model="username" placeholder="用户名" name="u" />
+        <input type="password" v-model="password" placeholder="密码" name="p" />
         <p>请回答下面问题</p>
         <p>你最喜欢的颜色是？</p>
         <form id="question">
@@ -26,9 +26,9 @@
       </form>
     </div>
     <div class="btn">
-      <router-link to="/mine">
-        <button>注册</button>
-      </router-link>
+      <!-- <router-link to="/mine"> -->
+        <button @click="register">注册</button>
+      <!-- </router-link> -->
     </div>
   </div>
 </template>
@@ -36,9 +36,22 @@
 <script>
 export default {
   name: "Register",
+  data(){
+    return{
+       username: '',
+       password: '',
+    }
+  },
   methods: {
     back() {
       this.$router.go(-1);
+    },
+    register(){
+      if (this.username === '' || this.password === '') {
+        alert('请输入用户名或密码')
+      } else {
+        this.$router.push("/mine");
+      }
     }
   }
 };
