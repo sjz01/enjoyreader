@@ -116,6 +116,7 @@ export default {
   p {
     font-family: kaiti;
     font-size: 1em;
+    padding: 5px;
   }
   span {
     font-size: 0.8em;
@@ -131,6 +132,10 @@ export default {
   div {
     width: 90%;
     margin: 0 auto;
+    text-indent: 2em;
+    font-family: fangsong;
+    letter-spacing: 1px;
+    line-height: 22px;
     span {
       color: rgba(28, 31, 28, 0.667);
       display: inline-block;
@@ -142,9 +147,9 @@ export default {
     }
   }
 }
-
 .introduce {
   margin: 0 auto;
+  line-height: 24px;
   div {
     width: 90%;
     margin: 0 auto;
@@ -153,6 +158,8 @@ export default {
       text-indent: 2em;
       font-family: fangsong;
       margin-bottom:14px; 
+      font-size: 18px;
+      letter-spacing: 1px;
     }
   }
 }
@@ -163,6 +170,7 @@ export default {
     font-size: 0.8em;
     margin-bottom: 50px;
     height: 56px;
+    letter-spacing: 1px;
 }
 
 .nav-bar {
