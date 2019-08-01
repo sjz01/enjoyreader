@@ -15,10 +15,10 @@
         <input type="password" v-model="password" placeholder="密码" name="p" />
       </form>
       <router-link to="/register">
-      <span class="qu">前去注册</span>
+        <span class="qu">前去注册</span>
       </router-link>
       <router-link to="/forget">
-      <span class="lai">忘记密码？</span>
+        <span class="lai">忘记密码？</span>
       </router-link>
     </div>
     <div class="btn">
@@ -30,35 +30,38 @@
 </template>
 
 <script>
-import http from "../axios/myApi"
+import http from "../axios/myApi";
 export default {
   name: "Login",
   data() {
     return {
       username: "",
       password: "",
-      showname:false
+      showname: false
     };
   },
   methods: {
     back() {
       this.$router.go(-1);
     },
-    islogin:function(){
-       http.login(this,this.username,this.password).then((res)=>{
-        if(res.data.result){
-           localStorage.username = this.username
+    islogin: function() {
+      var reg = /^\w{6,20}$/;
+      if (!reg.test(this.username) || !reg.test(this.password)) {
+        alert("禁止特殊符号，请输入6-20位的用户名和密码");
+        return;
+      }
+      http.login(this, this.username, this.password).then(res => {
+        if (res.data.result) {
+          localStorage.username = this.username;
           this.showname = true;
-         console.log(this.username);
-         location.href = 'http://localhost:8080/mine'
-         
-        } else{
-          alert(res.data.msg)
+          console.log(this.username);
+          location.href = "/mine";
+        } else {
+          alert(res.data.msg);
           // this.showname = false;
         }
-         
-       })
-     }
+      });
+    }
   }
 };
 </script>

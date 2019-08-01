@@ -16,51 +16,68 @@
         <p>请回答下面问题</p>
         <p>{{question}}</p>
         <form id="question">
-          <input type="radio" name="color" value="红" checked  v-model="answer"/>红
-          
-          <input type="radio" name="color" value="绿" v-model="answer" />绿
-        
-          <input type="radio" name="color" value="蓝"  v-model="answer"/>蓝
-          
+          <input type="radio" name="color" value="红" checked v-model="answer" />
+红
+          <input type="radio" name="color" value="绿" v-model="answer" />
+绿
+          <input type="radio" name="color" value="蓝" v-model="answer" />
+蓝
         </form>
       </form>
     </div>
     <div class="btn">
       <!-- <router-link to="/mine"> -->
-        <button @click="register">注册</button>
+      <button @click="register">注册</button>
       <!-- </router-link> -->
     </div>
   </div>
 </template>
 
 <script>
-import http from '../axios/myApi'
+import http from "../axios/myApi";
 export default {
   name: "Register",
-  data(){
-    return{
-       username: '',
-       password: '',
-       question:'你最喜欢的颜色是？',
-       answer:'',
-       
-    }
+  data() {
+    return {
+      username: "",
+      password: "",
+      question: "你最喜欢的颜色是？",
+      answer: ""
+    };
   },
   methods: {
     back() {
       this.$router.go(-1);
     },
-    register(){
-      console.log(this.answer)
-      http.register(this,this.username,this.password,this.question,this.answer).then((res)=>{
-        if(res.data.result){
-          localStorage.question = this.question
-          localStorage.answer = this.answer
-          location.href = 'http://localhost:8080/Login'
-        } else{
-          alert(res.data.msg)
-        }
-      })
+    register() {
+      // console.log(this.answer);
+      // 用户名，密码，6-20位不允许出现特殊符号
+      var reg = /^\w{6,20}$/;
+      if (!reg.test(this.username) || !reg.test(this.password)) {
+        alert("禁止特殊符号，请输入6-20位的用户名和密码");
+        return;
+      }
+      //  if (localStorage.token) {
+      //       // 已经登录过了
+      //       location.href = "/login";
+      //   }
+      http
+        .register(
+          this,
+          this.username,
+          this.password,
+          this.question,
+          this.answer
+        )
+        .then(res => {
+          if (res.data.result) {
+            localStorage.question = this.question;
+            localStorage.answer = this.answer;
+            location.href = "/login";
+          } else {
+            alert(res.data.msg);
+          }
+        });
     }
   }
 };
@@ -120,7 +137,7 @@ export default {
 }
 form {
   text-align: center;
-  p{
+  p {
     // margin-top: 30px;
     margin-left: 20px;
     margin-top: 10px;
@@ -128,28 +145,26 @@ form {
     font-family: kaiti;
     color: white;
   }
-  p:nth-of-type(1){
+  p:nth-of-type(1) {
     margin-top: 30px;
-    
   }
-  #question input{
+  #question input {
     width: 20px;
     height: 20px;
     color: #ffffff;
     text-align: center;
     padding-bottom: 10px;
-    vertical-align:middle; 
-    margin-top:-2px; 
-    margin-bottom:1px;
+    vertical-align: middle;
+    margin-top: -2px;
+    margin-bottom: 1px;
   }
-  #question{
+  #question {
     margin-top: 10px;
     color: white;
     // text-align: center;
     font-size: 20px;
     font-family: kaiti;
   }
-
 }
 input {
   width: 75%;
@@ -185,7 +200,7 @@ input:focus {
   border: 2px solid #eee;
   border-radius: 20px;
   outline: none;
-   font-family: kaiti;
-   font-size: 20px;
+  font-family: kaiti;
+  font-size: 20px;
 }
 </style>
