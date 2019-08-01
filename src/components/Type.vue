@@ -56,6 +56,8 @@
 <script>
 import { connect } from 'net';
 import http from "../axios/myApi"
+import { Indicator } from 'mint-ui';
+
 export default {
   name: "Type",
   data(){
@@ -80,6 +82,12 @@ export default {
       this.$store.state.content = key
       console.log(this.$store.state.content)
     }
+  },
+  beforeCreate (){
+    Indicator.open('网快的话你可能看不见这个加载..网慢的话你也不会无聊...');
+  },
+  updated  (){
+    Indicator.close();
   },
   created(){
     // 发起请求
