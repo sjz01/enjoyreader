@@ -13,7 +13,7 @@
         <span>注册</span>
       </router-link>
     </p>
-    <p class="Login">{{username}}</p>
+    <p v-if="showname" class="Login">{{username}}</p>
     <div style="clear:both"></div>
     <br />
 
@@ -25,9 +25,8 @@
       </div>
       <button @click="alert()">关于我们</button>
       <button @click="showCont">友情赞助</button>
-
-      <router-link to="/login">
-        <button>退出登录</button>
+      <router-link  to="/login">
+        <button  v-if="showname" @click="quit">退出登录</button>
       </router-link>
     </div>
     <Tabbar />
@@ -59,8 +58,13 @@ export default {
     },
     showCont: function() {
       this.show = !this.show;
-    }
-  },
+    },
+    quit(){
+        this.username = "";
+        console.log(this.username);
+        this.showname = false;
+    } 
+     },
   created() {
     if (localStorage.username) {
       this.username = localStorage.username;
@@ -75,7 +79,7 @@ export default {
   margin-top: 50px;
   z-index: 9;
   background: url(../assets/背景123.jpg);
-  height: 100%;
+  height:86%;
   width: 100%;
   background-repeat: no-repeat;
   background-size: 100% 100%;
@@ -108,9 +112,11 @@ a {
   font-family: kaiti;
 }
 .about {
+  margin: -50px auto;
   width: 100%;
   text-align: center;
   color: #8a8a8a;
+  padding-bottom: 20px;
   // background-color: blue;
 
   input {
