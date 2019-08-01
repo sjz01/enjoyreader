@@ -3,18 +3,20 @@
     <!-- 书架 -->
     <div class="bookone">
       <ul class="books">
+        <router-link to="/bookcity" >
         <li class="add" @click="changeTitle('书城')">
           <img src="@/assets/添加.png" alt />
         </li>
+        </router-link>
         <!-- <template v-for="(title,key) in this.$store.state.title" :key="key"></template> -->
         <li v-for="(src,key) in $store.state.img" :key="key" >
           <img :src="src" alt />
           <p>{{$store.state.title[key]}}</p>
         </li>
        
-        <router-link to="/bookcity" >
+        
        
-        </router-link>
+        
       </ul>
     </div>
     <Tabbar />

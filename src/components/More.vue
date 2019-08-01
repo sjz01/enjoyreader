@@ -8,19 +8,19 @@
       </span>
       <p>更多图书</p>
     </nav>
-    <mt-loadmore :top-method="loadTop" :bottom-method="loadBottom"  ref="loadmore">
+    <mt-loadmore :top-method="loadTop" :bottom-method="loadBottom" bottomPullText=""  ref="loadmore">
       <ul class="books">
         <!--循环-->
         <li>
           <div class="item" v-for="(mysrc,key) in mydata" :key="key" @click="dj(key)">
             <!-- <img class="book-pic" :src=mysrc.img alt="图片加载异常"/> -->
-
             <router-link
               :to="{path: '/bookdetail',params:{id:mydata.title}}"
               tag="img"
               class="book-pic"
               :src="mysrc.img"
-              alt="图片加载异常"
+              alt="图片加载失败"
+              @error.native="imgError(item)"
             ></router-link>
             <div class="info">
               <h2 class="book-name">{{mysrc.title}}</h2>
@@ -59,10 +59,15 @@ export default {
     loadBottom() {
       this.allLoaded = true; // 若数据已全部获取完毕
       this.$refs.loadmore.onBottomLoaded();
+    },
+    imgError(item){
+       item.img = require('../assets/错误图片.png');
     }
+      
   },
   created() {
     // 发起请求
+    
     if (this.$store.state.id == 1) {
       this.$axios
         .get(
