@@ -60,7 +60,8 @@ export default {
       this.show = !this.show;
     },
     quit(){
-        this.username = "";
+        localStorage.username = "";
+        this.username = localStorage.username;
         console.log(this.username);
         this.showname = false;
     } 
