@@ -22,28 +22,32 @@ import Navbar from "./components/Navbar";
 import BookCity from "./views/BookCity";
 import BookShelf from "./views/BookShelf";
 import BookDetail from "./views/BookDetail";
+import { timingSafeEqual } from 'crypto';
 
 
 export default {
   name: "App",
+  methods:{
+    _isMobile() {
+	 let flag = navigator.userAgent.match(/(phone|pad|pod|iPhone|iPod|ios|iPad|Android)/i)
+	 return flag;
+}
+  },
   components: {
     Tabbar,
     Navbar,
     BookCity,
     BookShelf,
     BookDetail
+  },
+  mounted() {
+    if (this._isMobile()) {
+       return;
+    }else{
+      alert("请在移动端打开");
+      // this.$router.replace('/');
+    }
   }
-  // data() {
-  //   return {
-
-  //   }
-  // },
-  // methods: {
-
-  // },
-  // created:{
-
-  // }
 };
 </script>
 
