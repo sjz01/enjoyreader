@@ -84,7 +84,7 @@ export default {
     }
   },
   beforeCreate (){
-    Indicator.open('网快的话你可能看不见这个加载..网慢的话你也不会无聊...');
+    Indicator.open('网快的话你可能看不见这个加载..网慢的话看字也不会无聊...');
   },
   updated  (){
     Indicator.close();
@@ -112,19 +112,39 @@ export default {
     // })
 
     //王磊接口
-     this.$axios.get("api/data/?id=64&key=AeHG+dFkG93+ip2L8Yo2QGzDMwTgsJeZ/px06Q&catalog_id=242&pn=10&rn=3")
+    //  this.$axios.get("api/data/?id=64&key=AeHG+dFkG93+ip2L8Yo2QGzDMwTgsJeZ/px06Q&catalog_id=242&pn=10&rn=3")
+    // .then((res)=>{
+    //   console.log(res);
+    //   this.mydata = res.data.result.data
+    //   this.$store.state.myData = res.data.result.data
+    // })
+    // this.$axios.get("api/data/?id=64&key=AeHG+dFkG93+ip2L8Yo2QGzDMwTgsJeZ/px06Q&catalog_id=247&pn=10&rn=3")
+    // .then((res)=>{
+    //   console.log(res);
+    //   this.mydata2 = res.data.result.data
+    //   this.$store.state.myData2 = res.data.result.data
+    // })
+    // this.$axios.get("api/data/?id=64&key=AeHG+dFkG93+ip2L8Yo2QGzDMwTgsJeZ/px06Q&catalog_id=244&pn=10&rn=3")
+    // .then((res)=>{
+    //   console.log(res);
+    //   this.mydata3 = res.data.result.data
+    //   this.$store.state.myData3 = res.data.result.data
+    // })
+    //倩瑶接口UO7HqNE0Soz+hpOL8Yo2RGnCPQTgsJeZ/px06Q
+
+     this.$axios.get("api/data/?id=64&key=UO7HqNE0Soz+hpOL8Yo2RGnCPQTgsJeZ/px06Q&catalog_id=242&pn=10&rn=3")
     .then((res)=>{
       console.log(res);
       this.mydata = res.data.result.data
       this.$store.state.myData = res.data.result.data
     })
-    this.$axios.get("api/data/?id=64&key=AeHG+dFkG93+ip2L8Yo2QGzDMwTgsJeZ/px06Q&catalog_id=247&pn=10&rn=3")
+    this.$axios.get("api/data/?id=64&key=UO7HqNE0Soz+hpOL8Yo2RGnCPQTgsJeZ/px06Q&catalog_id=247&pn=10&rn=3")
     .then((res)=>{
       console.log(res);
       this.mydata2 = res.data.result.data
       this.$store.state.myData2 = res.data.result.data
     })
-    this.$axios.get("api/data/?id=64&key=AeHG+dFkG93+ip2L8Yo2QGzDMwTgsJeZ/px06Q&catalog_id=244&pn=10&rn=3")
+    this.$axios.get("api/data/?id=64&key=UO7HqNE0Soz+hpOL8Yo2RGnCPQTgsJeZ/px06Q&catalog_id=244&pn=10&rn=3")
     .then((res)=>{
       console.log(res);
       this.mydata3 = res.data.result.data

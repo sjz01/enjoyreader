@@ -67,7 +67,7 @@ export default {
       
   },
   beforeCreate (){
-    Indicator.open('网快的话你可能看不见这个加载..网慢的话你也不会无聊...');
+    Indicator.open('网快的话你可能看不见这个加载..网慢的话看字也不会无聊...');
   },
   updated  (){
     Indicator.close();
