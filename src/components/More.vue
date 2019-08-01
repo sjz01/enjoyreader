@@ -35,6 +35,7 @@
 </template>
 
 <script>
+import { Indicator } from 'mint-ui';
 export default {
   name: "More",
   data() {
@@ -64,6 +65,12 @@ export default {
        item.img = require('../assets/错误图片.png');
     }
       
+  },
+  beforeCreate (){
+    Indicator.open('网快的话你可能看不见这个加载..网慢的话你也不会无聊...');
+  },
+  updated  (){
+    Indicator.close();
   },
   created() {
     // 发起请求

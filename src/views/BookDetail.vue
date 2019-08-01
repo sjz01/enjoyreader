@@ -120,9 +120,9 @@ export default {
     cancel() {
       var c = this.content[this.$store.state.content].img
       var d = this.content[this.$store.state.content].title
-      console.log(c)
-      console.log(d)
-       console.log(this.$store.state.img)
+      // console.log(c)
+      // console.log(d)
+      //  console.log(this.$store.state.img)
      
 
       this.$store.state.img.remove(c);
@@ -142,7 +142,7 @@ export default {
     } else {
       this.content = this.$store.state.myData3;
     };
-
+//取消收藏remove方法数组去元素
  Array.prototype.indexOf = function(val) {
       for (var i = 0; i < this.length; i++) {
         if (this[i] == val) return i;
@@ -159,12 +159,6 @@ export default {
     };
 
   },
-  updated: function() {
-    //数组去元素remove方法
-
-  
-   
-  }
 };
 </script>
 
