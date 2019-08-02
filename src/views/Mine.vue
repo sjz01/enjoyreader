@@ -3,7 +3,7 @@
     <!-- 我的 -->
     <!-- <p>我的</p> -->
     <div class="touxiang">
-      <img src="@/assets/mineLogo.jpg" alt />
+      <img src="../assets/cege.jpg" alt />
     </div>
     <p v-if="!showname" class="Login">
       <router-link to="/login">
@@ -42,7 +42,8 @@ export default {
     return {
       showname: false,
       username: "",
-      show: false
+      show: false,
+      tou:""
     };
   },
   components: {
@@ -71,6 +72,9 @@ export default {
       this.username = localStorage.username;
       this.showname = true;
     }
+    this.tou= this.$store.state.touxiang
+    console.log(this.tou)
+    console.log(typeof(this.tou))
   }
 };
 </script>
