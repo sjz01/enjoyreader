@@ -3,16 +3,18 @@
     <!-- 我的 -->
     <!-- <p>我的</p> -->
     <div class="touxiang">
-      <img src="../assets/cege.jpg" alt />
+     <img  v-if="!showname" src="../assets/mineLogo.jpg" alt="">
+     <img v-if="showname" src="../assets/cege.jpg" alt="">
     </div>
     <p v-if="!showname" class="Login">
       <router-link to="/login">
-        <span>登录</span>
+        <span @click="login">登录</span>
       </router-link>/
       <router-link to="/register">
         <span>注册</span>
       </router-link>
     </p>
+       
     <p v-if="showname" class="Login">{{username}}</p>
     <div style="clear:both"></div>
     <br />
@@ -43,7 +45,7 @@ export default {
       showname: false,
       username: "",
       show: false,
-      tou:""
+      tou:"../assets/cege.jpg",
     };
   },
   components: {
@@ -65,16 +67,20 @@ export default {
         this.username = localStorage.username;
         console.log(this.username);
         this.showname = false;
-    } 
+    } ,
+    login() {
+        
+    }
      },
   created() {
+    console.log(this.tou)
     if (localStorage.username) {
       this.username = localStorage.username;
       this.showname = true;
     }
-    this.tou= this.$store.state.touxiang
-    console.log(this.tou)
-    console.log(typeof(this.tou))
+    // this.tou= this.$store.state.touxiang
+    // console.log(this.tou)
+    // console.log(typeof(this.tou))
   }
 };
 </script>
