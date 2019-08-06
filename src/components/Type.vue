@@ -160,7 +160,7 @@ export default {
       });
     this.$axios
       .get(
-        "/api/?id=64&key=UO7HqNE0Soz+hpOL8Yo2RGnCPQTgsJeZ/px06Q&catalog_id=244&pn=10&rn=3"
+        "/api/data/?id=64&key=UO7HqNE0Soz+hpOL8Yo2RGnCPQTgsJeZ/px06Q&catalog_id=244&pn=10&rn=3"
       )
       .then(res => {
         console.log(res);

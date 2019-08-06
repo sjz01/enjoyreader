@@ -73,7 +73,7 @@ export default {
           if (res.data.result) {
             localStorage.question = this.question;
             localStorage.answer = this.answer;
-            location.href = "/login";
+            location.href = "#/Login";
           } else {
             alert(res.data.msg);
           }

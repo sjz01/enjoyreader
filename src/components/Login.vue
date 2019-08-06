@@ -55,7 +55,7 @@ export default {
           localStorage.username = this.username;
           this.showname = true;
           console.log(this.username);
-          location.href = "/mine";
+          location.href = "#/mine";
         } else {
           alert(res.data.msg);
           // this.showname = false;
