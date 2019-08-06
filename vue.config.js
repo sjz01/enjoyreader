@@ -2,7 +2,6 @@ module.exports = {
     devServer:{
         proxy:{
             '/api':{
-                // http://apis
                 target:'http://zhouxunwang.cn',
                 changeOrigin:true,
                 pathRewrite: {
@@ -15,7 +14,11 @@ module.exports = {
                 pathRewrite: {
                     '^/bole' : ""
                 }
-            }        
+            },
       }
-    }
+    },
+    publicPath: './',
+    // 输出文件目录
+    outputDir: 'dist',
+    // webpack-dev-server 相关配置
 }
