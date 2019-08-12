@@ -18,6 +18,8 @@ export default new Vuex.Store({
     id:null,
     title:[],
     img:[],
+    MYKEY : "UO7HqNE0Soz+hpOL8Yo2RGnCPQTgsJeZ/px06Q",
+    id:64
   },
   mutations: {
     changeMytitle:(state,payload)=>{

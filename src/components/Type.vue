@@ -65,7 +65,7 @@
 <script>
 import { connect } from "net";
 import http from "../axios/myApi";
-import { Indicator } from "mint-ui";
+import { Indicator } from "mint-ui"
 
 export default {
   name: "Type",
@@ -99,6 +99,7 @@ export default {
     Indicator.close();
   },
   created() {
+
     // 发起请求
     // this.$axios.get("api/data/?id=64&key=UO7HqNE0Soz+hpOL8Yo2RGnCPQTgsJeZ/px06Q&catalog_id=242&pn=10&rn=3")
     // .then((res)=>{
@@ -139,34 +140,50 @@ export default {
     //   this.mydata3 = res.data.result.data
     //   this.$store.state.myData3 = res.data.result.data
     // })
+
     //倩瑶接口UO7HqNE0Soz+hpOL8Yo2RGnCPQTgsJeZ/px06Q
-    this.$axios
-      .get(
-        "/api/data/?id=64&key=UO7HqNE0Soz+hpOL8Yo2RGnCPQTgsJeZ/px06Q&catalog_id=242&pn=10&rn=3"
-      )
-      .then(res => {
-        console.log(res);
-        this.mydata = res.data.result.data;
-        this.$store.state.myData = res.data.result.data;
-      });
-    this.$axios
-      .get(
-        "/api/data/?id=64&key=UO7HqNE0Soz+hpOL8Yo2RGnCPQTgsJeZ/px06Q&catalog_id=247&pn=10&rn=3"
-      )
-      .then(res => {
-        console.log(res);
-        this.mydata2 = res.data.result.data;
-        this.$store.state.myData2 = res.data.result.data;
-      });
-    this.$axios
-      .get(
-        "/api/data/?id=64&key=UO7HqNE0Soz+hpOL8Yo2RGnCPQTgsJeZ/px06Q&catalog_id=244&pn=10&rn=3"
-      )
-      .then(res => {
-        console.log(res);
-        this.mydata3 = res.data.result.data;
-        this.$store.state.myData3 = res.data.result.data;
-      });
+    // this.$axios
+    //   .get(
+    //     "/api/data/?id=64&key=UO7HqNE0Soz+hpOL8Yo2RGnCPQTgsJeZ/px06Q&catalog_id=242&pn=10&rn=3"
+    //   )
+    //   .then(res => {
+    //     console.log(res);
+    //     this.mydata = res.data.result.data;
+    //     this.$store.state.myData = res.data.result.data;
+    //   });
+    // this.$axios
+    //   .get(
+    //     "/api/data/?id=64&key=UO7HqNE0Soz+hpOL8Yo2RGnCPQTgsJeZ/px06Q&catalog_id=247&pn=10&rn=3"
+    //   )
+    //   .then(res => {
+    //     console.log(res);
+    //     this.mydata2 = res.data.result.data;
+    //     this.$store.state.myData2 = res.data.result.data;
+    //   });
+    // this.$axios
+    //   .get(
+    //     "/api/data/?id=64&key=UO7HqNE0Soz+hpOL8Yo2RGnCPQTgsJeZ/px06Q&catalog_id=244&pn=10&rn=3"
+    //   )
+    //   .then(res => {
+    //     console.log(res);
+    //     this.mydata3 = res.data.result.data;
+    //     this.$store.state.myData3 = res.data.result.data;
+    //   });
+
+
+    //新的请求接口
+    http.getBookData(this,{
+      id :this.$store.state.id,
+      key : this.$store.state.MYKEY,
+      catalog_id: 244,
+      pn: 10,
+      rn: 3
+    }).then((res)=>{
+      console.log(res);
+      this.mydata = res.data.result.data;
+      this.$store.state.myData = res.data.result.data;
+    });
+    
   }
 };
 </script>
